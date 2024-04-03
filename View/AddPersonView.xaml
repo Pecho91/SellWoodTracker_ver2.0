@@ -1,0 +1,181 @@
+﻿<Window x:Class="SellWoodTracker_ver2._0.View.AddPersonView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SellWoodTracker_ver2._0.View"
+        mc:Ignorable="d"
+        Title="AddPersonView" Height="430" Width="475">
+    
+    <Window.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+    </Window.Resources>
+
+    <!--<Window.DataContext>
+     <viewmodel:AddPersonViewModel/>
+ </Window.DataContext>-->
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="210"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="30"/>
+            <ColumnDefinition Width ="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width ="30"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Grid.Row="0" 
+              Grid.ColumnSpan="4"
+              Height="30"                
+              Style="{StaticResource TextBoxStyle}" 
+              TextAlignment="Center"
+              IsReadOnly="True"
+              Text="Add Person"/>
+
+        <DockPanel Grid.Column="1" Grid.Row="2">
+
+
+            <TextBox Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"
+                  IsReadOnly="True"
+                  Text="First Name:"/>
+
+            <TextBox Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"
+                  IsReadOnly="True"
+                  Text="Last Name:"/>
+
+            <TextBox Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"
+                  IsReadOnly="True"
+                  Text="Email:"/>
+
+            <TextBox Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"
+                  IsReadOnly="True"
+                  Text="Phone number:"/>
+
+            <TextBox Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"
+                  IsReadOnly="True"
+                  Text="Date:"/>
+
+            <TextBox Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top"
+                  TextAlignment="Center"
+                  IsReadOnly="True"
+                  Text="Amount of m^3:"/>
+
+            <TextBox Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top"
+                  TextAlignment="Center"
+                  IsReadOnly="True"
+                  Text="Price per m^3 (€):"/>
+
+
+        </DockPanel>
+
+
+        <DockPanel Grid.Column="2" Grid.Row="2">
+
+            <TextBox x:Name="FirstNameTextBox"
+                  Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"                   
+                  Text="{Binding NewPerson.FirstName, Mode=TwoWay}"/>
+
+            <TextBox x:Name="LastNameTextBox"
+                  Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"
+                  Text="{Binding NewPerson.LastName, Mode=TwoWay}"/>
+
+            <TextBox x:Name="EmailTextBox"
+                  Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"
+                  Text="{Binding NewPerson.EmailAddress, Mode=TwoWay}"/>
+
+            <TextBox x:Name="PhoneNumberTextBox"
+                  Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"
+                  Text="{Binding NewPerson.CellphoneNumber, Mode=TwoWay}"/>
+
+            <TextBox x:Name="DateTextBox"
+                  Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"
+                  Text="{Binding NewPerson.DateTime, Mode=TwoWay}"/>
+
+            <TextBox x:Name="MetricAmountTextBox"
+                  Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top"
+                  TextAlignment="Center"
+                  Text="{Binding NewPerson.MetricAmount, Mode=TwoWay}"/>
+
+            <TextBox x:Name="MetricPriceTextBox"
+                  Height="30"
+                  Style="{StaticResource TextBoxStyle}"
+                  DockPanel.Dock="Top" 
+                  TextAlignment="Center"
+                  Text="{Binding NewPerson.MetricPrice, Mode=TwoWay}"/>
+
+
+        </DockPanel>
+
+        <DockPanel Grid.Column="2" Grid.Row="3">
+
+            <Button x:Name="ClearButton"
+                 Height="30"
+                 DockPanel.Dock="Bottom"
+                 Style="{StaticResource ButtonStyle}"
+                 Content="Clear"
+                 Command="{Binding ClearFieldsCommand}"/>
+
+            <Button x:Name="AddPersonButton"
+                 Height="30"
+                 DockPanel.Dock="Bottom"
+                 Style="{StaticResource ButtonStyle}"
+                 Content="Add Person"
+                 Command="{Binding AddPersonCommand}"/>
+        </DockPanel>
+
+
+
+    </Grid>
+</Window>
