@@ -10,7 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\close_window.png" />
     <None Remove="Images\logs_background.jpg" />
+    <None Remove="Images\maximize_window.png" />
+    <None Remove="Images\minimize_window.png" />
+    <None Remove="Images\restore_down_window.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\close_window.png" />
     <Resource Include="Images\logs_background.jpg" />
+    <Resource Include="Images\maximize_window.png" />
+    <Resource Include="Images\minimize_window.png" />
+    <Resource Include="Images\restore_down_window.png" />
   </ItemGroup>
 
 </Project>

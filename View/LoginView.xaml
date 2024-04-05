@@ -7,65 +7,94 @@
         mc:Ignorable="d"
         Title="LoginView" Height="450" Width="800"
         WindowStyle="None"
-        ResizeMode="NoResize"
+        ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseDown="Window_MouseDown">
+        MouseDown="Window_MouseLeftButtonDown"
+        MouseMove="ResizeWindowMouseMove"
+        MouseUp="StopResizeWindow">
     
-        <!--Background="Transparent"
-        AllowsTransparency="True"-->
-
-    <Border CornerRadius="15">
+    <Border CornerRadius="8">
         <Border.Background>
             <ImageBrush ImageSource="/Images/logs_background.jpg"
-                        Stretch="None"/>
+                        Stretch="Fill"/>
         </Border.Background>
-        
-    <Border CornerRadius="15"
-            BorderThickness="2"
+
+        <Border CornerRadius="8"
+            BorderThickness="0"
             Opacity="0.75"
             Background="Gray">
 
-         <Grid>
-              <Grid>
-                  <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-                    
-                  <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="5"/>
-                   </Grid.ColumnDefinitions>
-                    
 
-                  <TextBlock Text="LOG IN"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock Text="LOG IN"  
+                             Background="Transparent"
                              Foreground="Black"
-                             FontSize="10"
+                             FontSize="16"
                              FontFamily ="Monteserrat"
+                             Grid.Row="0"
                              Grid.Column="0"
                              VerticalAlignment="Center"
                              Margin="10,0,0,0"/>
 
-                  <Button x:Name="btnMinimize"                           
-                          Grid.Column="1"
-                          Cursor="Hand"
-                          Click="btnMinimize_Click"/>
-                    <Image Source="/Images/minimize_window.png"
-                           Grid.Column="1"
+                <Button x:Name="btnMinimize" 
+                            Background="Transparent"
+                            BorderThickness="0"                        
+                            Cursor="Hand"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Click="btnMinimize_Click">
+
+                <Image Source="/Images/minimize_window.png"                       
+                       Height="25"
+                       Width="25"/>
+                </Button>
+
+                <Button x:Name="btnRestore" 
+                        Background="Transparent"
+                        BorderThickness="0"                        
+                        Cursor="Hand"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Click="btnRestore_Click">
+
+                    <Image Source="/Images/maximize_window.png"                       
+                           Height="25"
+                           Width="25"/> 
+                </Button>
+
+                <Button x:Name="btnClose" 
+                        Background="Transparent"
+                        BorderThickness="0"                        
+                        Cursor="Hand"
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        Click="btnClose_Click">
+
+                    <Image Source="/Images/close_window.png"                       
                            Height="25"
                            Width="25"/>
+                </Button>
 
-                    
-                </Grid>
-         </Grid>
+            </Grid>
+            
+        </Border>
     </Border>
-    </Border>
-    
+
 
 </Window>
