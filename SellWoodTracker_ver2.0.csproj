@@ -10,8 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\logs_background.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\logs_background.jpg" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SellWoodTracker_ver2._0.View"
         mc:Ignorable="d"
-        Title="AddPersonView" Height="430" Width="475">
+        Title="AddPersonView" 
+        Height="430" 
+        Width="475">
     
     <Window.Resources>
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
