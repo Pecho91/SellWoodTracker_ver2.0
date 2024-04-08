@@ -22,7 +22,7 @@
 
         <Border CornerRadius="8"
             BorderThickness="0"
-            Opacity="0.75"
+            Opacity="0.85"
             Background="Gray">
 
             <Grid>
@@ -93,7 +93,7 @@
                 <StackPanel Width="250"
                             Grid.Row="2"
                             Orientation="Vertical"
-                            Margin="80,40,0,0">
+                            Margin="80,25,0,0">
 
                     <TextBlock Text="Sell Wood Tracker"
                                Foreground="Black"
@@ -115,7 +115,7 @@
                                FontSize="18"                               
                                FontFamily="Montserrat"
                                FontWeight="Medium"                                                            
-                               Margin="0,35,0,0"/>
+                               Margin="0,25,0,0"/>
 
                     <TextBox x:Name="txtUser"
                              FontSize="18"
@@ -148,6 +148,34 @@
                               VerticalContentAlignment="Center"
                               Margin="0,5,0,0"/>
 
+                    <Button x:Name="btnLogin"
+                            Content="LOG IN"
+                            FontSize="18"
+                            FontFamily="Montserrat"
+                            FontWeight="Medium"
+                            Background="Transparent"
+                            BorderThickness="2"
+                            BorderBrush="Black"
+                            Cursor="Hand"
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            Click="btnClose_Click"
+                            Margin="70,30,70,0">
+                    </Button>
+
+                    <TextBlock Text="Forgot Username?"
+                               Foreground="Black"
+                               FontSize="14"                               
+                               FontFamily="Montserrat"
+                               FontWeight="Medium"                                                            
+                               Margin="0,30,0,0"/>
+
+                    <TextBlock Text="Forgot Password?"
+                                Foreground="Black"
+                                FontSize="14"                               
+                                FontFamily="Montserrat"
+                                FontWeight="Medium"                                                            
+                                Margin="0,5,0,0"/>
 
                 </StackPanel>
                 
