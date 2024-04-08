@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -8,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -18,9 +20,9 @@ namespace SellWoodTracker_ver2._0.View
     /// Interaction logic for LoginView.xaml
     /// </summary>
     public partial class LoginView : Window
-    {
-        private bool isResizing = false;
-        private Point startPoint;
+    {      
+        private bool isDragging = false;
+        private Point startPoint = new Point();
         public LoginView()
         {
             InitializeComponent();
@@ -62,42 +64,19 @@ namespace SellWoodTracker_ver2._0.View
             }
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        [DllImport("user32.dll")]
+        public static extern IntPtr SendMessage(IntPtr hWind, int wMsg, int wParam, int lParam);
+
+        private void pnlControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.ChangedButton == MouseButton.Left)
-            {
-                DragMove();
-            }
+            WindowInteropHelper helper = new WindowInteropHelper(this);
+            SendMessage(helper.Handle, 161, 2, 0);
         }
 
-        private void ResizeWindowMouseDown(object sender, MouseButtonEventArgs e)
+        private void pnlControlBar_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                isResizing = true;
-                startPoint = e.GetPosition(this);
-            }
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
-
-        private void ResizeWindowMouseMove(object sender, MouseEventArgs e)
-        {
-            if (isResizing)
-            {
-                Point endPoint = e.GetPosition(this);
-                double deltaX = endPoint.X - startPoint.X;
-                double deltaY = endPoint.Y - startPoint.Y;
-
-                Width += deltaX;
-                Height += deltaY;
-
-                startPoint = endPoint;
-            }
-        }
-
-        private void StopResizeWindow(object sender, MouseButtonEventArgs e)
-        {
-            isResizing = false;
-        }
-
+     
     }
 }

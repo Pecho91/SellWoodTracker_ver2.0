@@ -15,6 +15,7 @@
     <None Remove="Images\maximize_window.png" />
     <None Remove="Images\minimize_window.png" />
     <None Remove="Images\restore_down_window.png" />
+    <None Remove="Images\username_logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,7 @@
     <Resource Include="Images\maximize_window.png" />
     <Resource Include="Images\minimize_window.png" />
     <Resource Include="Images\restore_down_window.png" />
+    <Resource Include="Images\username_logo.png" />
   </ItemGroup>
 
 </Project>
