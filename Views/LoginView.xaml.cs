@@ -21,8 +21,7 @@ namespace SellWoodTracker_ver2._0.View
     /// </summary>
     public partial class LoginView : Window
     {      
-        private bool isDragging = false;
-        private Point startPoint = new Point();
+       
         public LoginView()
         {
             InitializeComponent();
@@ -54,7 +53,7 @@ namespace SellWoodTracker_ver2._0.View
             else if (WindowState == WindowState.Maximized)
             {
                 WindowState = WindowState.Normal;
-                // Change the icon to indicate maximize
+                
                 btnRestore.Content = new Image
                 {
                     Source = new BitmapImage(new Uri("/Images/maximize_window.png", UriKind.Relative)),

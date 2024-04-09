@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SellWoodTracker_ver2._0.View"
+        xmlns:viewModel="clr-namespace:SellWoodTracker_ver2._0.ViewModels"
         mc:Ignorable="d"
         Title="LoginView"  Height="450" Width="800" MinHeight="450" MinWidth="800"
         WindowStyle="None"
@@ -13,6 +14,18 @@
         AllowsTransparency="False"
         MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
         MouseEnter="pnlControlBar_MouseEnter">
+
+    <Window.DataContext>
+        <viewModel:LoginViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+    </Window.Resources>
+
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </Window.Visibility>
     
     <Border CornerRadius="8">
         <Border.Background>
@@ -22,7 +35,7 @@
 
         <Border CornerRadius="8"
             BorderThickness="0"
-            Opacity="0.85"
+            Opacity="0.92"
             Background="Gray">
 
             <Grid>
@@ -118,6 +131,7 @@
                                Margin="0,25,0,0"/>
 
                     <TextBox x:Name="txtUser"
+                             Text="{Binding Username }"
                              FontSize="18"
                              FontFamily="Montserrat"
                              FontWeight="Medium"
@@ -129,7 +143,7 @@
                              VerticalContentAlignment="Center"                             
                              Margin="0,5,0,0"/>
                                        
-                    <TextBlock Text="Password:"
+                    <TextBlock Text="Password:"                               
                                Foreground="Black"
                                FontSize="18"                               
                                FontFamily="Montserrat"
@@ -163,19 +177,23 @@
                             Margin="70,30,70,0">
                     </Button>
 
-                    <TextBlock Text="Forgot Username?"
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,20,0,0">
+                        
+                        <TextBlock Text="Forgot Username?"
                                Foreground="Black"
                                FontSize="14"                               
-                               FontFamily="Montserrat"
-                               FontWeight="Medium"                                                            
-                               Margin="0,30,0,0"/>
+                               FontFamily="Montserrat"/>
 
-                    <TextBlock Text="Forgot Password?"
+                        <TextBlock Text="Reset"
                                 Foreground="Black"
                                 FontSize="14"                               
                                 FontFamily="Montserrat"
-                                FontWeight="Medium"                                                            
-                                Margin="0,5,0,0"/>
+                                FontWeight="Medium"                                                                                           
+                                Cursor="Hand"
+                                Margin="10,0,0,0"/>
+                    </StackPanel>
 
                 </StackPanel>
                 
