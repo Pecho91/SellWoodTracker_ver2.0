@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace SellWoodTracker_ver2._0.ViewModels
+namespace SellWoodTracker_ver2_0.ViewModels
 {
     public class ViewModelCommand : ICommand
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace SellWoodTracker_ver2._0.ViewModels
+namespace SellWoodTracker_ver2_0.ViewModels
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

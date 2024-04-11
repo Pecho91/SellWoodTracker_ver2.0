@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SellWoodTracker_ver2._0.View
+namespace SellWoodTracker_ver2_0.Views
 {
     /// <summary>
     /// Interaction logic for AddPersonView.xaml

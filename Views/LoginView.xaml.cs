@@ -14,14 +14,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SellWoodTracker_ver2._0.View
+namespace SellWoodTracker_ver2_0.Views
 {
     /// <summary>
     /// Interaction logic for LoginView.xaml
     /// </summary>
     public partial class LoginView : Window
-    {      
-       
+    {
+
         public LoginView()
         {
             InitializeComponent();
@@ -53,7 +53,7 @@ namespace SellWoodTracker_ver2._0.View
             else if (WindowState == WindowState.Maximized)
             {
                 WindowState = WindowState.Normal;
-                
+
                 btnRestore.Content = new Image
                 {
                     Source = new BitmapImage(new Uri("/Images/maximize_window.png", UriKind.Relative)),
@@ -64,7 +64,7 @@ namespace SellWoodTracker_ver2._0.View
         }
 
         [DllImport("user32.dll")]
-        public static extern IntPtr SendMessage(IntPtr hWind, int wMsg, int wParam, int lParam);
+        public static extern nint SendMessage(nint hWind, int wMsg, int wParam, int lParam);
 
         private void pnlControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -74,8 +74,8 @@ namespace SellWoodTracker_ver2._0.View
 
         private void pnlControlBar_MouseEnter(object sender, MouseEventArgs e)
         {
-            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
-     
+
     }
 }

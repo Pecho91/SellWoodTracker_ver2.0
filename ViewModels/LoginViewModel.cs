@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace SellWoodTracker_ver2._0.ViewModels
+namespace SellWoodTracker_ver2_0.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
@@ -36,9 +36,9 @@ namespace SellWoodTracker_ver2._0.ViewModels
             {
                 return _password;
             }
-            set 
-            { 
-                _password = value; 
+            set
+            {
+                _password = value;
                 OnPropertyChanged(nameof(Password));
             }
         }
@@ -80,11 +80,11 @@ namespace SellWoodTracker_ver2._0.ViewModels
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPasswordCommand("", ""));
         }
 
-        
+
         private bool CanExecuteLoginCommand(object obj)
         {
             bool validData;
-            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 || Password == null || Password.Length < 3 )
+            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 || Password == null || Password.Length < 3)
             {
                 validData = false;
             }
