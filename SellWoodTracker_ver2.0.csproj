@@ -18,6 +18,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SellWoodTracker_ver2.0.DataAccess\SellWoodTracker_ver2.0.DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\close_window.png" />
     <Resource Include="Images\logs_background.jpg" />
     <Resource Include="Images\maximize_window.png" />
