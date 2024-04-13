@@ -5,9 +5,13 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SellWoodTracker_ver2.0", "SellWoodTracker_ver2.0.csproj", "{7256900C-69AF-4796-B01A-50369CA91ED2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SellWoodTracker_ver2.0.DataAccess", "..\SellWoodTracker_ver2.0.DataAccess\SellWoodTracker_ver2.0.DataAccess.csproj", "{23B30686-6F6F-459B-8FE0-3C5B8B9B11EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SellWoodTracker_ver2.0.DataAccess", "..\SellWoodTracker_ver2.0.DataAccess\SellWoodTracker_ver2.0.DataAccess.csproj", "{23B30686-6F6F-459B-8FE0-3C5B8B9B11EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SellWoodTracker_ver2.0.Models", "..\SellWoodTracker_ver2.0.Models\SellWoodTracker_ver2.0.Models.csproj", "{A612E131-09C2-4914-8DCD-C6558844D630}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SellWoodTracker_ver2.0.Models", "..\SellWoodTracker_ver2.0.Models\SellWoodTracker_ver2.0.Models.csproj", "{A612E131-09C2-4914-8DCD-C6558844D630}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{88D31609-BB7D-4CB5-A2FE-17A8BA79B933}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{4AED423A-E910-461B-8CEE-79FA4E4F41A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +34,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7256900C-69AF-4796-B01A-50369CA91ED2} = {88D31609-BB7D-4CB5-A2FE-17A8BA79B933}
+		{23B30686-6F6F-459B-8FE0-3C5B8B9B11EF} = {4AED423A-E910-461B-8CEE-79FA4E4F41A6}
+		{A612E131-09C2-4914-8DCD-C6558844D630} = {4AED423A-E910-461B-8CEE-79FA4E4F41A6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {362736CC-1CCF-40D9-A1CF-BB331FB315F4}

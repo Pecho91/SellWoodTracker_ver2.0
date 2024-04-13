@@ -19,7 +19,7 @@ namespace SellWoodTracker_ver2_0.ViewModels
         //TODO (find another security methods)
         private SecureString _password;
         private string _errorMessage;
-        private bool _isViewVisible = true;
+        private bool _isViewVisible;
 
         private IUserRepository _userRepository;
 
