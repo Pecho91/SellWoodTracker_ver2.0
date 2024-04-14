@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace SellWoodTracker_ver2_0.Views
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class MainView : Window
     {
-        public Window1()
+        public MainView()
         {
             InitializeComponent();
         }

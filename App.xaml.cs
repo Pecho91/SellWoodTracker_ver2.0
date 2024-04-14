@@ -20,8 +20,8 @@ namespace SellWoodTracker_ver2_0.Views
             {
                 if (loginView.IsVisible == false && loginView.IsLoaded)
                 {
-                    var window1 = new Window1();
-                    window1.Show();
+                    var mainView = new MainView();
+                    mainView.Show();
                     loginView.Close();
                 }
             };
