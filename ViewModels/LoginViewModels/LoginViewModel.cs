@@ -7,10 +7,12 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using SellWoodTracker_ver2._0.DataAccess.Interfaces;
-using SellWoodTracker_ver2._0.DataAccess.Repositories;
+using SellWoodTracker_ver2._0.DataAccess.UserInterfaces;
+using SellWoodTracker_ver2._0.DataAccess.UserRepositories;
+using SellWoodTracker_ver2_0.ViewModels.Base;
+using SellWoodTracker_ver2_0.ViewModels.RelayCommands;
 
-namespace SellWoodTracker_ver2_0.ViewModels
+namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
