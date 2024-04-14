@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{7F76DA02-3663-463E-BC22-C638692159D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SellWoodTracker_ver2.0.DataAccess", "SellWoodTracker_ver2.0.DataAccess\SellWoodTracker_ver2.0.DataAccess.csproj", "{31BAADED-0504-43F5-81AD-84663B87F880}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SellWoodTracker_ver2.0.DataAccess", "..\SellWoodTracker_ver2.0.DataAccess\SellWoodTracker_ver2.0.DataAccess.csproj", "{C0A89D77-E576-44B0-843E-117B1D1CE302}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SellWoodTracker_ver2.0.Models", "SellWoodTracker_ver2.0.Models\SellWoodTracker_ver2.0.Models.csproj", "{11C51FA0-D8DB-4A37-9F7E-BAFF9D71A5B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SellWoodTracker_ver2.0.Models", "..\SellWoodTracker_ver2.0.Models\SellWoodTracker_ver2.0.Models.csproj", "{AF8672A3-1B90-49E3-B11E-9F5B857DF979}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,22 +25,22 @@ Global
 		{7256900C-69AF-4796-B01A-50369CA91ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7256900C-69AF-4796-B01A-50369CA91ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7256900C-69AF-4796-B01A-50369CA91ED2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31BAADED-0504-43F5-81AD-84663B87F880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31BAADED-0504-43F5-81AD-84663B87F880}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31BAADED-0504-43F5-81AD-84663B87F880}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31BAADED-0504-43F5-81AD-84663B87F880}.Release|Any CPU.Build.0 = Release|Any CPU
-		{11C51FA0-D8DB-4A37-9F7E-BAFF9D71A5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11C51FA0-D8DB-4A37-9F7E-BAFF9D71A5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11C51FA0-D8DB-4A37-9F7E-BAFF9D71A5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11C51FA0-D8DB-4A37-9F7E-BAFF9D71A5B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A89D77-E576-44B0-843E-117B1D1CE302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A89D77-E576-44B0-843E-117B1D1CE302}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A89D77-E576-44B0-843E-117B1D1CE302}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A89D77-E576-44B0-843E-117B1D1CE302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF8672A3-1B90-49E3-B11E-9F5B857DF979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF8672A3-1B90-49E3-B11E-9F5B857DF979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF8672A3-1B90-49E3-B11E-9F5B857DF979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF8672A3-1B90-49E3-B11E-9F5B857DF979}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7256900C-69AF-4796-B01A-50369CA91ED2} = {88D31609-BB7D-4CB5-A2FE-17A8BA79B933}
-		{31BAADED-0504-43F5-81AD-84663B87F880} = {4AED423A-E910-461B-8CEE-79FA4E4F41A6}
-		{11C51FA0-D8DB-4A37-9F7E-BAFF9D71A5B7} = {7F76DA02-3663-463E-BC22-C638692159D5}
+		{C0A89D77-E576-44B0-843E-117B1D1CE302} = {4AED423A-E910-461B-8CEE-79FA4E4F41A6}
+		{AF8672A3-1B90-49E3-B11E-9F5B857DF979} = {7F76DA02-3663-463E-BC22-C638692159D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {362736CC-1CCF-40D9-A1CF-BB331FB315F4}
