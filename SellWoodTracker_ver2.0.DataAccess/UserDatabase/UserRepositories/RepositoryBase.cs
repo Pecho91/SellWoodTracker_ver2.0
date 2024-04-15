@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace SellWoodTracker_ver2._0.DataAccess.UserRepositories
+namespace SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories
 {
     public abstract class RepositoryBase
     {

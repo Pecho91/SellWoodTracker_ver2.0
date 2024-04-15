@@ -7,8 +7,8 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using SellWoodTracker_ver2._0.DataAccess.UserInterfaces;
-using SellWoodTracker_ver2._0.DataAccess.UserRepositories;
+using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserInterfaces;
+using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories;
 using SellWoodTracker_ver2_0.ViewModels.Base;
 using SellWoodTracker_ver2_0.ViewModels.RelayCommands;
 
@@ -16,16 +16,12 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
-        //Fields
-        private string _username;
+
         //TODO (find another security methods)
-        private SecureString _password;
-        private string _errorMessage;
-        private bool _isViewVisible;
 
         private IUserRepository _userRepository;
 
-        //Properties
+        private string _username;
         public string Username
         {
             get
@@ -38,6 +34,8 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
                 OnPropertyChanged(nameof(Username));
             }
         }
+
+        private SecureString _password;
         public SecureString Password
         {
             get
@@ -50,6 +48,8 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
                 OnPropertyChanged(nameof(Password));
             }
         }
+
+        private string _errorMessage;
         public string ErrorMessage
         {
             get
@@ -62,6 +62,8 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
                 OnPropertyChanged(nameof(ErrorMessage));
             }
         }
+
+        private bool _isViewVisible;
         public bool IsViewVisible
         {
             get

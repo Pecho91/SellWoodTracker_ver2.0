@@ -39,6 +39,7 @@ C:\Users\andri\source\repos\SellWoodTracker_ver2.0_Solution\SellWoodTracker_ver2
 C:\Users\andri\source\repos\SellWoodTracker_ver2.0_Solution\SellWoodTracker_ver2.0.DataAccess\obj\Debug\net8.0-windows\SellWoodTracker_ver2.0.DataAccess.AssemblyInfoInputs.cache
 C:\Users\andri\source\repos\SellWoodTracker_ver2.0_Solution\SellWoodTracker_ver2.0.DataAccess\obj\Debug\net8.0-windows\SellWoodTracker_ver2.0.DataAccess.AssemblyInfo.cs
 C:\Users\andri\source\repos\SellWoodTracker_ver2.0_Solution\SellWoodTracker_ver2.0.DataAccess\obj\Debug\net8.0-windows\SellWoodTracker_ver2.0.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\andri\source\repos\SellWoodTracker_ver2.0_Solution\SellWoodTracker_ver2.0.DataAccess\obj\Debug\net8.0-windows\SellWoodTracker_ver2.0.DataAccess.sourcelink.json
 C:\Users\andri\source\repos\SellWoodTracker_ver2.0_Solution\SellWoodTracker_ver2.0.DataAccess\obj\Debug\net8.0-windows\SellWoodTracker_ver2.0.DataAccess.csproj.CopyComplete
 C:\Users\andri\source\repos\SellWoodTracker_ver2.0_Solution\SellWoodTracker_ver2.0.DataAccess\obj\Debug\net8.0-windows\SellWoodTracker_ver2.0.DataAccess.dll
 C:\Users\andri\source\repos\SellWoodTracker_ver2.0_Solution\SellWoodTracker_ver2.0.DataAccess\obj\Debug\net8.0-windows\refint\SellWoodTracker_ver2.0.DataAccess.dll

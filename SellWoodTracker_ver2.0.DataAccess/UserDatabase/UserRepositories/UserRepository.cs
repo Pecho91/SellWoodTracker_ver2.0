@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
-using SellWoodTracker_ver2._0.DataAccess.UserInterfaces;
-using SellWoodTracker_ver2._0.Models;
+using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserInterfaces;
+using SellWoodTracker_ver2._0.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SellWoodTracker_ver2._0.DataAccess.UserRepositories
+namespace SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories
 {
     public class UserRepository : RepositoryBase, IUserRepository
     {
@@ -71,8 +71,8 @@ namespace SellWoodTracker_ver2._0.DataAccess.UserRepositories
                     command.Connection = connection;
                     command.CommandText = "select *from[User] where [username]=@username";
                     command.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
-                    
-                    using(var reader = command.ExecuteReader())
+
+                    using (var reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {

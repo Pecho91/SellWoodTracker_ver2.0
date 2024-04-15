@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SellWoodTracker_ver2._0.Models
+namespace SellWoodTracker_ver2._0.Models.Users
 {
     public class UserModel
     {
