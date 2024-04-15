@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SellWoodTracker_ver2._0.Models.Buyers
 {
-    internal class CompletedBuyer
+    public class CompletedBuyerModel
     {
     }
 }
