@@ -7,8 +7,12 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyeInterface;
 using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserInterfaces;
 using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories;
+using SellWoodTracker_ver2._0.Models.Buyers;
+using SellWoodTracker_ver2_0.Commands;
+using SellWoodTracker_ver2_0.Services.LoginServices;
 using SellWoodTracker_ver2_0.ViewModels.Base;
 using SellWoodTracker_ver2_0.ViewModels.RelayCommands;
 
@@ -17,9 +21,8 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
     public class LoginViewModel : ViewModelBase
     {
 
-        //TODO (find another security methods)
-
-        private IUserRepository _userRepository;
+        private readonly AuthenticationLoginService _authenticationLoginService;
+        private readonly UserIdentityService _userIdentityService;
 
         private string _username;
         public string Username
@@ -85,17 +88,16 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
 
         //Constructor
         public LoginViewModel()
-        {
-            _userRepository = new UserRepository();
-            LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
-            RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPasswordCommand("", ""));
+        {           
+            _authenticationLoginService = new AuthenticationLoginService(new UserRepository());
+            _userIdentityService = new UserIdentityService();
+            LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
         }
 
-
         private bool CanExecuteLoginCommand(object obj)
-        {
+        {           
             bool validData;
-            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 || Password == null || Password.Length < 3)
+            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 4 || Password == null || Password.Length < 4)
             {
                 validData = false;
             }
@@ -108,10 +110,10 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
 
         private void ExecuteLoginCommand(object obj)
         {
-            var isValidUser = _userRepository.AuthenticateUser(new NetworkCredential(Username, Password));
+            var isValidUser = _authenticationLoginService.AuthenticateUser(Username, Password);
             if (isValidUser)
             {
-                Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
+                _userIdentityService.SetCurrentPrincipal(Username);
                 IsViewVisible = false;
             }
             else
@@ -119,10 +121,10 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
                 ErrorMessage = "* Invalid username or password";
             }
         }
-
-        private void ExecuteRecoverPasswordCommand(string v1, string v2)
-        {
-            throw new NotImplementedException();
-        }
+       
+        //private void ExecuteRecoverPasswordCommand(string v1, string v2)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

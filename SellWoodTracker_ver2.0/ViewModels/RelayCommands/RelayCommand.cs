@@ -8,20 +8,20 @@ using System.Windows.Input;
 
 namespace SellWoodTracker_ver2_0.ViewModels.RelayCommands
 {
-    public class ViewModelCommand : ICommand
+    public class RelayCommand : ICommand
     {
         //Fields
         private readonly Action<object> _executeAction;
         private readonly Predicate<object>? _canExecuteAction;
 
         //Constructors
-        public ViewModelCommand(Action<object> executeAction)
+        public RelayCommand(Action<object> executeAction)
         {
             _executeAction = executeAction ?? throw new ArgumentNullException(nameof(executeAction));
             _canExecuteAction = null;
         }
 
-        public ViewModelCommand(Action<object> executeAction, Predicate<object> canExecuteAction)
+        public RelayCommand(Action<object> executeAction, Predicate<object> canExecuteAction)
         {
             _executeAction = executeAction ?? throw new ArgumentNullException(nameof(executeAction));
             _canExecuteAction = canExecuteAction;
