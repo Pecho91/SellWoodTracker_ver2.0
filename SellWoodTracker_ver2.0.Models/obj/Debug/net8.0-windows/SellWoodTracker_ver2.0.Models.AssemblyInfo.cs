@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SellWoodTracker_ver2.0.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5cd0bbdff16b7de2a6094ea98a6ea93dfb6d94ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7e9d10c16c014dfe56eb736c1ebdc6f61756daa")]
 [assembly: System.Reflection.AssemblyProductAttribute("SellWoodTracker_ver2.0.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SellWoodTracker_ver2.0.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

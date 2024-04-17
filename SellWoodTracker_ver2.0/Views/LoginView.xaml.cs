@@ -46,7 +46,7 @@ namespace SellWoodTracker_ver2_0.Views
 
                 btnRestore.Content = new Image
                 {
-                    Source = new BitmapImage(new Uri("pack://application:,,,/SellWoodTracker_ver2.0;component/Images/restore_down_window.png", UriKind.Relative)),
+                    Source = new BitmapImage(new Uri("pack://application:,,,/SellWoodTracker_ver2.0;component/Images/restore_down_window.png", UriKind.RelativeOrAbsolute)),
                     Height = 25,
                     Width = 25,
                 
@@ -58,7 +58,7 @@ namespace SellWoodTracker_ver2_0.Views
 
                 btnRestore.Content = new Image
                 {
-                    Source = new BitmapImage(new Uri("pack://application:,,,/SellWoodTracker_ver2.0;component/Images/maximize_window.png", UriKind.Relative)),
+                    Source = new BitmapImage(new Uri("pack://application:,,,/SellWoodTracker_ver2.0;component/Images/maximize_window.png", UriKind.RelativeOrAbsolute)),
                     Height = 25,
                     Width = 25
                 };
