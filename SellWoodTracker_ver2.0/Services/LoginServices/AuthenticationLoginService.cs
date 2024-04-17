@@ -18,7 +18,7 @@ namespace SellWoodTracker_ver2_0.Services.LoginServices
             _userRepository = userRepository;
         }
 
-        public bool AuthenticateUser(string username, SecureString password)
+        public bool AuthenticateLoginUser(string username, SecureString password)
         {
             return _userRepository.AuthenticateUser(new NetworkCredential(username, password));
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -45,9 +46,10 @@ namespace SellWoodTracker_ver2_0.Views
 
                 btnRestore.Content = new Image
                 {
-                    Source = new BitmapImage(new Uri("pack://application:,,,/SellWoodTracker_2.0;component/Images/restore_down_window.png", UriKind.Relative)),
+                    Source = new BitmapImage(new Uri("pack://application:,,,/SellWoodTracker_ver2.0;component/Images/restore_down_window.png", UriKind.Relative)),
                     Height = 25,
                     Width = 25,
+                
                 };
             }
             else if (WindowState == WindowState.Maximized)
@@ -56,7 +58,7 @@ namespace SellWoodTracker_ver2_0.Views
 
                 btnRestore.Content = new Image
                 {
-                    Source = new BitmapImage(new Uri("pack://application:,,,/SellWoodTracker_2.0;component/Images/maximize_window.png", UriKind.Relative)),
+                    Source = new BitmapImage(new Uri("pack://application:,,,/SellWoodTracker_ver2.0;component/Images/maximize_window.png", UriKind.Relative)),
                     Height = 25,
                     Width = 25
                 };

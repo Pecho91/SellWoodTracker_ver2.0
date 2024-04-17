@@ -12,7 +12,7 @@
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        AllowsTransparency="False"
+        AllowsTransparency="True"
         MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
         MouseEnter="pnlControlBar_MouseEnter">
 
@@ -54,7 +54,7 @@
                     <ColumnDefinition Width="5"/>
                 </Grid.ColumnDefinitions>
                
-                <TextBlock Text="LOG IN"  
+                <TextBlock Text="Log In"  
                              Background="Transparent"
                              Foreground="Black"
                              FontSize="18"
@@ -75,7 +75,9 @@
 
                 <Image Source="/Images/minimize_window.png"                       
                        Height="25"
-                       Width="25"/>
+                       Width="25"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
                 </Button>
 
                 <Button x:Name="btnRestore" 
@@ -88,7 +90,9 @@
 
                     <Image Source="/Images/maximize_window.png"                       
                            Height="25"
-                           Width="25"/> 
+                           Width="25"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/> 
                 </Button>
 
                 <Button x:Name="btnClose" 
@@ -101,7 +105,9 @@
 
                     <Image Source="/Images/close_window.png"                       
                            Height="25"
-                           Width="25"/>
+                           Width="25"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"/>
                 </Button>
 
                 <StackPanel Width="250"

@@ -110,7 +110,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
 
         private void ExecuteLoginCommand(object obj)
         {
-            var isValidUser = _authenticationLoginService.AuthenticateUser(Username, Password);
+            var isValidUser = _authenticationLoginService.AuthenticateLoginUser(Username, Password);
             if (isValidUser)
             {
                 _userIdentityService.SetCurrentPrincipal(Username);
