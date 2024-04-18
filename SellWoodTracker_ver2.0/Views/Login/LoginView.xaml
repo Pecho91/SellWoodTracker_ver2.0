@@ -12,7 +12,7 @@
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        AllowsTransparency="True"
+        AllowsTransparency="False"
         MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
         MouseEnter="pnlControlBar_MouseEnter">
   

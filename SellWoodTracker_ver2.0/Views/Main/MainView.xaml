@@ -6,12 +6,14 @@
         xmlns:local="clr-namespace:SellWoodTracker_ver2_0.Views.Main"
         xmlns:viewModel="clr-namespace:SellWoodTracker_ver2_0.ViewModels.MainViewModels"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800"
+        Title="MainView" Height="450" Width="800" MinHeight="450" MinWidth="800"
         WindowStyle="None"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="False"
+        MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+        MouseEnter="pnlControlBar_MouseEnter">
 
     <Window.DataContext>
         <viewModel:MainViewModel/>
@@ -89,8 +91,57 @@
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+
+                <StackPanel x:Name="pnlControlBar"
+                            Grid.Row="0"
+                            Orientation="Horizontal"
+                            FlowDirection="RightToLeft"
+                            Background="Transparent"
+                            Margin="0,0,5,5">
+
+                    <Button x:Name="btnClose" 
+                            Background="Transparent"
+                            BorderThickness="0"                        
+                            Cursor="Hand"                           
+                            Click="btnClose_Click">
+
+                        <Image Source="/Images/close_window.png"                       
+                               Height="25"
+                               Width="25"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                    </Button>
+
+                    <Button x:Name="btnRestore" 
+                            Background="Transparent"
+                            BorderThickness="0"                        
+                            Cursor="Hand"                           
+                            Click="btnRestore_Click">
+
+                        <Image Source="/Images/maximize_window.png"                       
+                               Height="25"
+                               Width="25"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                    </Button>
+
+                    <Button x:Name="btnMinimize" 
+                            Background="Transparent"
+                            BorderThickness="0"                        
+                            Cursor="Hand"                           
+                            Click="btnMinimize_Click">
+
+                        <Image Source="/Images/minimize_window.png"                       
+                               Height="25"
+                               Width="25"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                    </Button>
+                </StackPanel>
+                
             </Grid>
 
         </Grid>

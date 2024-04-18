@@ -27,7 +27,7 @@ namespace SellWoodTracker_ver2_0.Views.Login
         public LoginView()
         {
             InitializeComponent();
-           
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
@@ -51,6 +51,8 @@ namespace SellWoodTracker_ver2_0.Views.Login
                     Source = new BitmapImage(new Uri("pack://application:,,,/SellWoodTracker_ver2.0;component/Images/restore_down_window.png", UriKind.RelativeOrAbsolute)),
                     Height = 25,
                     Width = 25,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center
                 
                 };
             }
@@ -62,7 +64,9 @@ namespace SellWoodTracker_ver2_0.Views.Login
                 {
                     Source = new BitmapImage(new Uri("pack://application:,,,/SellWoodTracker_ver2.0;component/Images/maximize_window.png", UriKind.RelativeOrAbsolute)),
                     Height = 25,
-                    Width = 25
+                    Width = 25,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center
                 };
             }
         }
