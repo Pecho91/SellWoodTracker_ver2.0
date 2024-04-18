@@ -19,8 +19,7 @@ using SellWoodTracker_ver2_0.ViewModels.RelayCommands;
 namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
 {
     public class LoginViewModel : ViewModelBase
-    {
-
+    {    
         private readonly AuthenticationLoginService _authenticationLoginService;
         private readonly UserIdentityService _userIdentityService;
 
@@ -66,7 +65,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
             }
         }
 
-        private bool _isViewVisible;
+        private bool _isViewVisible = true;
         public bool IsViewVisible
         {
             get
@@ -88,14 +87,15 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
 
         //Constructor
         public LoginViewModel()
-        {           
+        {
             _authenticationLoginService = new AuthenticationLoginService(new UserRepository());
             _userIdentityService = new UserIdentityService();
             LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
+            //RecoverPasswordCommand = new RelayCommand(p => ExecuteRecoverPasswordCommand("", ""));
         }
 
         private bool CanExecuteLoginCommand(object obj)
-        {           
+        {
             bool validData;
             if (string.IsNullOrWhiteSpace(Username) || Username.Length < 4 || Password == null || Password.Length < 4)
             {
@@ -121,10 +121,10 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
                 ErrorMessage = "* Invalid username or password";
             }
         }
-       
-        //private void ExecuteRecoverPasswordCommand(string v1, string v2)
-        //{
-        //    throw new NotImplementedException();
-        //}
+
+        private void ExecuteRecoverPasswordCommand(string v1, string v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

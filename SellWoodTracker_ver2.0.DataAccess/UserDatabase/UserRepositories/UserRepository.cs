@@ -91,7 +91,7 @@ namespace SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"");
+                Debug.WriteLine($"Error Message: {ex}");
             }
             return user;
         }

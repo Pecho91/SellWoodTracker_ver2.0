@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
-using SellWoodTracker_ver2_0.ViewModels.LoginViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +26,6 @@ namespace SellWoodTracker_ver2_0.Views
         public LoginView()
         {
             InitializeComponent();
-           
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)

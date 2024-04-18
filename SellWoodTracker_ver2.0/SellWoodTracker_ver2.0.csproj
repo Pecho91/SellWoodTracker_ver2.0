@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="LoginView.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Images\close_window.png" />
     <None Remove="Images\logs_background.jpg" />
     <None Remove="Images\maximize_window.png" />

@@ -40,17 +40,17 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
         private void LoadCurrentUserData()
         {
-            var user = _userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
-            if (user != null)
-            {
-                CurrentUserAccount.Username = user.Username;
-                CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName}";
-                CurrentUserAccount.ProfilePicture = null;
-            }
-            else
-            {
-                CurrentUserAccount.DisplayName="Invalid user, not logged in";
-            }
+            //var user = _userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
+            //if (user != null)
+            //{
+            //    CurrentUserAccount.Username = user.Username;
+            //    CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName}";
+            //    CurrentUserAccount.ProfilePicture = null;
+            //}
+            //else
+            //{
+            //    CurrentUserAccount.DisplayName="Invalid user, not logged in";
+            //}
         }
     }
 }
