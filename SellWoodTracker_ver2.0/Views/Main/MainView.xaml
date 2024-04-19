@@ -19,6 +19,18 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:RequestedBuyersViewModel}">
+            <local:RequestedBuyersView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:CompletedBuyersViewModel}">
+            <local:CompletedBuyersView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    
+
     <Border CornerRadius="8"
             Background="LightGray">
         
@@ -29,9 +41,15 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-
+            <Grid Grid.Column="0"
+                  Background="LightSlateGray">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="400"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            
             <StackPanel Grid.Column="0"
-                        Background="LightSlateGray">
+                        Grid.Row="0">
                 
                     <TextBlock Text="Sell Wood Tracker"  
                                 Background="Transparent"
@@ -54,7 +72,8 @@
                                Margin="0,0,0,30"/>
 
                 
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding RequestedBuyersViewCommand}">
                          <StackPanel Orientation="Horizontal">
                             <Image Source="/Images/requested_task.png"                       
                                    Height="22"
@@ -65,7 +84,8 @@
                          </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding CompletedBuyersViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Images/completed_task.png"                       
                                    Height="22"
@@ -74,7 +94,7 @@
                             <TextBlock Text="Requested Buyers"
                                        Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
-                    </RadioButton>  
+                    </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
@@ -86,19 +106,23 @@
                                        Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
+                </StackPanel>
 
-                <StackPanel Orientation="Horizontal"
-                            Margin="0,160,0,0">
-                    <Image Source="/Images/user_login.png"                       
-                           Height="23"
-                           Width="23"
-                           Margin="15,0,5,0"/>
+                <StackPanel Orientation="Horizontal"                            
+                            VerticalAlignment="Bottom"
+                            Margin="0,0,0,10"
+                            Grid.Row="1"
+                            Grid.Column="0">
+                    <Image Source="/Images/user_login.png" 
+                            Height="23"
+                            Width="23"
+                            Margin="15,0,5,0"/>
                     <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
-                               Style="{StaticResource menuButtonText}"/>
+                                Style="{StaticResource menuButtonText}"/>
 
                 </StackPanel>
-            </StackPanel>
-            
+            </Grid>
+        
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -171,9 +195,9 @@
                   
                 </Grid>
 
-                <ContentControl Content=""
+                <ContentControl Content="{Binding CurrentChildView}"
                                 Grid.Row="2"
-                                Margin="">
+                                Margin="10">
                     
                 </ContentControl>
                 

@@ -6,7 +6,15 @@
              xmlns:local="clr-namespace:SellWoodTracker_ver2_0.Views.Main"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="red">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid>
+            <DataGrid.Resources>
+                
+            </DataGrid.Resources>
+        </DataGrid>
     </Grid>
 </UserControl>
