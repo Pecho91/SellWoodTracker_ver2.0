@@ -7,12 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="RequestedBuyersDataGrid">
+        <StackPanel Grid.Column="0"
+             Orientation="Horizontal">
+            <Image Source="/Images/requested_task.png"                       
+             Height="22"
+             Width="22"
+             Margin="0,0,5,0"/>
+            <TextBlock Text="Requested Buyers"
+            Style="{StaticResource menuButtonText}"/>
+        </StackPanel>
+
+        <DataGrid x:Name="RequestedBuyersDataGrid"
+                  Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header=" ID " Binding="{Binding Id}" />
                 <DataGridTextColumn Header=" First Name " Binding="{Binding FirstName}" />

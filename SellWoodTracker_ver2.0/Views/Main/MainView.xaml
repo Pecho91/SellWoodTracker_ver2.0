@@ -73,6 +73,7 @@
 
                 
                     <RadioButton Style="{StaticResource menuButton}"
+                                 IsChecked="true"
                                  Command="{Binding RequestedBuyersViewCommand}">
                          <StackPanel Orientation="Horizontal">
                             <Image Source="/Images/requested_task.png"                       
@@ -126,7 +127,6 @@
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
@@ -177,23 +177,7 @@
                     </Button>
                 </StackPanel>
 
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <StackPanel Grid.Column="0"
-                                Orientation="Horizontal">
-                        <Image Source="/Images/requested_task.png"                       
-                                Height="22"
-                                Width="22"
-                                Margin="15,0,5,0"/>
-                        <TextBlock Text="Requested Buyers"
-                                   Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
-                  
-                </Grid>
+                
 
                 <ContentControl Content="{Binding CurrentChildView}"
                                 Grid.Row="2"

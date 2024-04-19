@@ -74,7 +74,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             RequestedBuyersViewCommand = new RelayCommand(ExecuteRequestedBuyersViewCommand);
             CompletedBuyersViewCommand = new RelayCommand(ExecuteCompletedBuyersViewCommand);
 
-            ExecuteRequestedBuyersViewCommand(null);
+            ExecuteRequestedBuyersViewCommand(null);           
             LoadCurrentUserData();
         }
 
