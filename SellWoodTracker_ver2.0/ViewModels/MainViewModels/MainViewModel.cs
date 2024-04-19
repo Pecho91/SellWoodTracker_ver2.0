@@ -8,6 +8,7 @@ using System.Windows;
 using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserInterfaces;
 using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories;
 using SellWoodTracker_ver2._0.Models.Users;
+using SellWoodTracker_ver2_0.Services.UserServices;
 using SellWoodTracker_ver2_0.ViewModels.Base;
 
 namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
@@ -15,7 +16,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
     public class MainViewModel : ViewModelBase
     {
         
-        private IUserRepository _userRepository;
+        private readonly UserAccountPreview _userAccountPreview;
 
         private UserAccountModel _currentUserAccount;
         public UserAccountModel CurrentUserAccount
@@ -33,24 +34,13 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
         public MainViewModel()
         {
-            _userRepository = new UserRepository();
-            CurrentUserAccount = new UserAccountModel();
+            _userAccountPreview = new UserAccountPreview(new UserRepository());          
             LoadCurrentUserData();
         }
 
         private void LoadCurrentUserData()
         {
-            //var user = _userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
-            //if (user != null)
-            //{
-            //    CurrentUserAccount.Username = user.Username;
-            //    CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName}";
-            //    CurrentUserAccount.ProfilePicture = null;
-            //}
-            //else
-            //{
-            //    CurrentUserAccount.DisplayName="Invalid user, not logged in";
-            //}
+            CurrentUserAccount = _userAccountPreview.GetCurrentUserAccount();
         }
     }
 }
