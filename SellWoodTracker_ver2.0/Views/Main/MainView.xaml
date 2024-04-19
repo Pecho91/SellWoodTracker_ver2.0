@@ -30,7 +30,8 @@
             </Grid.ColumnDefinitions>
 
 
-            <StackPanel Grid.Column="0">
+            <StackPanel Grid.Column="0"
+                        Background="LightSlateGray">
                 
                     <TextBlock Text="Sell Wood Tracker"  
                                 Background="Transparent"
@@ -85,7 +86,17 @@
                                        Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-               
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,160,0,0">
+                    <Image Source="/Images/user_login.png"                       
+                           Height="23"
+                           Width="23"
+                           Margin="15,0,5,0"/>
+                    <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
+                               Style="{StaticResource menuButtonText}"/>
+
+                </StackPanel>
             </StackPanel>
             
             <Grid Grid.Column="1">
@@ -157,20 +168,14 @@
                         <TextBlock Text="Requested Buyers"
                                    Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
-
-                    <StackPanel Grid.Column="1"
-                                Orientation="Horizontal"
-                                FlowDirection="RightToLeft"
-                                Margin="0,0,10,0">
-                        
-                            <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
-                                   Style="{StaticResource menuButtonText}"
-                                   Margin="10,0,5,0"/>
-                        <Image Source="/Images/user_login.png"                       
-                               Height="23"
-                               Width="23"/>  
-                    </StackPanel>
+                  
                 </Grid>
+
+                <ContentControl Content=""
+                                Grid.Row="2"
+                                Margin="">
+                    
+                </ContentControl>
                 
             </Grid>
 

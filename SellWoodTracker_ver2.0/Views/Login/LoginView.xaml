@@ -54,7 +54,7 @@
                     <ColumnDefinition Width="25"/>
                     <ColumnDefinition Width="5"/>
                 </Grid.ColumnDefinitions>
-
+                
                 <TextBlock Text="Log In"  
                              Background="Transparent"
                              Foreground="Black"
