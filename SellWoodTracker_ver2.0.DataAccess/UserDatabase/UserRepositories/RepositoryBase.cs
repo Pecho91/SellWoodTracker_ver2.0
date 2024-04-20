@@ -14,7 +14,6 @@ namespace SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories
         private readonly string _connectionString;
         public RepositoryBase()
         {
-            //_connectionString = "Server=DESKTOP-4ORQH0K;Database=SellWoodTracker_ver2.0;Integrated Security=true;Encrypt=True;Trust Server Certificate=True";
             _connectionString = "Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=SellWoodTrcker_ver2.0_test;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
         }
 
