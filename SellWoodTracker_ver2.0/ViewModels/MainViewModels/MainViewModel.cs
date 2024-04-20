@@ -63,6 +63,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             }
         }
 
+        public ICommand AddNewBuyerViewCommand { get; set; }
         public ICommand RequestedBuyersViewCommand {  get; set; }
         public ICommand CompletedBuyersViewCommand { get; set;}
 
@@ -71,11 +72,23 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             _userAccountPreview = new UserAccountPreview(new UserRepository());
 
             // can be with can execute or just execute.
+            AddNewBuyerViewCommand = new RelayCommand(ExecuteAddNewBuyerViewCommand);
             RequestedBuyersViewCommand = new RelayCommand(ExecuteRequestedBuyersViewCommand);
             CompletedBuyersViewCommand = new RelayCommand(ExecuteCompletedBuyersViewCommand);
 
             ExecuteRequestedBuyersViewCommand(null);           
             LoadCurrentUserData();
+        }
+
+        private bool CanExecuteAddNewBuyerViewCommand(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ExecuteAddNewBuyerViewCommand(object obj)
+        {
+            CurrentChildView = new RequestedBuyersViewModel();
+            Caption = "ADDNEW_BUYER";
         }
 
         private bool CanExecuteRequestedBuyersViewCommand(object obj)

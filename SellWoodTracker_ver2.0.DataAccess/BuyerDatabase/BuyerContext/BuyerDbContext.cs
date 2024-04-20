@@ -13,10 +13,8 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerContext
     {
         public DbSet<RequestedBuyerModel> RequestedBuyers { get; set; }
         public DbSet<CompletedBuyerModel> CompletedBuyers { get; set;}
-
-       
-
-        public BuyerDbContext() : base("Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=SellWoodTrcker_ver2.0_test;Integrated Security=True;Encrypt=True;Trust Server Certificate=True")
+     
+        public BuyerDbContext(DbContextOptions<BuyerDbContext> options) : base(options)
         {
 
         }

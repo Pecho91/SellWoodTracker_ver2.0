@@ -1,4 +1,6 @@
-﻿using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyeInterface;
+﻿using Microsoft.EntityFrameworkCore;
+using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyeInterface;
+using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerContext;
 using SellWoodTracker_ver2._0.Models.Buyers;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,16 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories
 {
     public class RequestedBuyerRepository : IBuyerRepository<RequestedBuyerModel>
     {
+        private readonly BuyerDbContext _context;
+
+        public RequestedBuyerRepository()
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<BuyerDbContext>();
+            optionsBuilder.UseSqlServer(App.ConnectionString);
+
+            _context = new BuyerDbContext(optionsBuilder.Options);
+        }
+
         public void Add(RequestedBuyerModel entity)
         {
             throw new NotImplementedException();

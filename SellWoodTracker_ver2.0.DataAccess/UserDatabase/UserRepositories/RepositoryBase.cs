@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories
         private readonly string _connectionString;
         public RepositoryBase()
         {
+            //_connectionString = ConfigurationManager.ConnectionStrings["LocalSqlConnection"].ConnectionString;
             _connectionString = "Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=SellWoodTrcker_ver2.0_test;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
         }
 
