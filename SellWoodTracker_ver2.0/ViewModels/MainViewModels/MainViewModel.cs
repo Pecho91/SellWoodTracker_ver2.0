@@ -12,6 +12,7 @@ using SellWoodTracker_ver2._0.Models.Users;
 using SellWoodTracker_ver2_0.Services.UserServices;
 using SellWoodTracker_ver2_0.ViewModels.Base;
 using SellWoodTracker_ver2_0.ViewModels.RelayCommands;
+using SellWoodTracker_ver2_0.Views;
 
 namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 {
@@ -69,7 +70,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
         public MainViewModel()
         {
-            _userAccountPreview = new UserAccountPreview(new UserRepository());
+            _userAccountPreview = new UserAccountPreview(new UserRepository(App.ConnectionString));
 
             // can be with can execute or just execute.
             AddNewBuyerViewCommand = new RelayCommand(ExecuteAddNewBuyerViewCommand);

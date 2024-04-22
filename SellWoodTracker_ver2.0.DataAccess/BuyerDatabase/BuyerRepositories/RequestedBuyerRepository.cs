@@ -14,10 +14,10 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories
     {
         private readonly BuyerDbContext _context;
 
-        public RequestedBuyerRepository()
+        public RequestedBuyerRepository(string connectionString)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BuyerDbContext>();
-            //optionsBuilder.UseSqlServer(.ConnectionString);
+            optionsBuilder.UseSqlServer(connectionString);
 
             _context = new BuyerDbContext(optionsBuilder.Options);
         }

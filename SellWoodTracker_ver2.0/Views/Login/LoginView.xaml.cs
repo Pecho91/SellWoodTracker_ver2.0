@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
+using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserInterfaces;
+using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories;
 using SellWoodTracker_ver2_0.ViewModels.LoginViewModels;
 using System;
 using System.Collections.Generic;
@@ -22,11 +24,10 @@ namespace SellWoodTracker_ver2_0.Views.Login
     /// Interaction logic for LoginView.xaml
     /// </summary>
     public partial class LoginView : Window
-    {
-
+    {        
         public LoginView()
         {
-            InitializeComponent();
+            InitializeComponent();           
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
 

@@ -1,6 +1,8 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using System.Windows.Threading;
+using Microsoft.Identity.Client;
 using SellWoodTracker_ver2_0.Views.Login;
 using SellWoodTracker_ver2_0.Views.Main;
 
@@ -12,22 +14,34 @@ namespace SellWoodTracker_ver2_0.Views
     public partial class App : Application
     {
         public static string ConnectionString { get; private set; }
+
+        public App()
+        {
+            
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
-             
-            //base.OnStartup(e);
+            ConnectionString = ConfigurationManager.ConnectionStrings["LocalSqlConnection"].ConnectionString;
+            base.OnStartup(e);
 
-            //var loginView = new LoginView();
-            //loginView.Show();
-            //loginView.IsVisibleChanged += (s, ev) =>
-            //{
-            //    if (loginView.IsVisible == false && loginView.IsLoaded)
-            //    {
-                    var mainView = new MainView();
-                    mainView.Show();
-            //        loginView.Close();
-            //    }
-            //};
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                var loginView = new LoginView();
+                loginView.Show();
+                loginView.IsVisibleChanged += (s, ev) =>
+                {
+                    if (loginView.IsVisible == false && loginView.IsLoaded)
+                    {
+                        var mainView = new MainView();
+                        mainView.Show();
+                        loginView.Close();
+                    }
+                };
+            }));
+
+
+
         }       
     }
 }

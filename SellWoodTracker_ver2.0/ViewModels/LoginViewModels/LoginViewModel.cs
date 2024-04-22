@@ -11,10 +11,11 @@ using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyeInterface;
 using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserInterfaces;
 using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories;
 using SellWoodTracker_ver2._0.Models.Buyers;
-using SellWoodTracker_ver2_0.Commands;
+
 using SellWoodTracker_ver2_0.Services.LoginServices;
 using SellWoodTracker_ver2_0.ViewModels.Base;
 using SellWoodTracker_ver2_0.ViewModels.RelayCommands;
+using SellWoodTracker_ver2_0.Views;
 
 namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
 {
@@ -22,7 +23,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
     {    
         private readonly AuthenticationLoginService _authenticationLoginService;
         private readonly UserIdentityService _userIdentityService;
-
+        
         private string _username;
         public string Username
         {
@@ -88,7 +89,12 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
         //Constructor
         public LoginViewModel()
         {
-            _authenticationLoginService = new AuthenticationLoginService(new UserRepository());
+            if (App.ConnectionString == null)
+            {
+                throw new InvalidOperationException("Connection string is not initialized.");
+            }
+        
+            _authenticationLoginService = new AuthenticationLoginService(new UserRepository(App.ConnectionString));
             _userIdentityService = new UserIdentityService();
             LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             //RecoverPasswordCommand = new RelayCommand(p => ExecuteRecoverPasswordCommand("", ""));
