@@ -87,7 +87,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
         private void ExecuteAddNewBuyerViewCommand(object obj)
         {
-            CurrentChildView = new RequestedBuyersViewModel();
+            CurrentChildView = new AddNewBuyerViewModel();
             Caption = "ADDNEW_BUYER";
         }
 

@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SellWoodTracker_ver2_0.Views.AddPerson
+namespace SellWoodTracker_ver2_0.Views.Main
 {
     /// <summary>
-    /// Interaction logic for AddPersonView.xaml
+    /// Interaction logic for AddNewBuyerView.xaml
     /// </summary>
-    public partial class AddPersonView : Window
+    public partial class AddNewBuyerView : UserControl
     {
-        public AddPersonView()
+        public AddNewBuyerView()
         {
             InitializeComponent();
         }

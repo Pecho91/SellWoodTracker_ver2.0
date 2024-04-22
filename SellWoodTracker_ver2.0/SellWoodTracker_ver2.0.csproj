@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\buyer_task.png" />
     <None Remove="Images\close_window.png" />
     <None Remove="Images\completed_task.png" />
     <None Remove="Images\logs_background.jpg" />
@@ -34,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\buyer_task.png" />
     <Resource Include="Images\close_window.png" />
     <Resource Include="Images\completed_task.png" />
     <Resource Include="Images\logs_background.jpg" />

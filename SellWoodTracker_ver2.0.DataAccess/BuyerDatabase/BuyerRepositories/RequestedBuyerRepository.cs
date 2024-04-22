@@ -17,7 +17,7 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories
         public RequestedBuyerRepository()
         {
             var optionsBuilder = new DbContextOptionsBuilder<BuyerDbContext>();
-            optionsBuilder.UseSqlServer(App.ConnectionString);
+            //optionsBuilder.UseSqlServer(.ConnectionString);
 
             _context = new BuyerDbContext(optionsBuilder.Options);
         }
