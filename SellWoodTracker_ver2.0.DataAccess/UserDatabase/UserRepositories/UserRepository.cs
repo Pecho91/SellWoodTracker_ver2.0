@@ -28,7 +28,14 @@ namespace SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories
 
         public void Add(UserModel userModel)
         {
-            throw new NotImplementedException();
+            _commandExecutor.ExecuteCommand(command => command.ExecuteNonQuery(),
+            "INSERT INTO [User] (Id, Username, Password, Name, LastName, Email) VALUES (@Id, @Username, @Password, @Name, @LastName, @Email)",
+            new SqlParameter("@Id", SqlDbType.NVarChar) { Value = userModel.Id },
+            new SqlParameter("@Username", SqlDbType.NVarChar) { Value = userModel.Username },
+            new SqlParameter("@Password", SqlDbType.NVarChar) { Value = userModel.Password },
+            new SqlParameter("@Name", SqlDbType.NVarChar) { Value = userModel.Name },
+            new SqlParameter("@LastName", SqlDbType.NVarChar) { Value = userModel.LastName },
+            new SqlParameter("@Email", SqlDbType.NVarChar) { Value = userModel.Email });
         }
 
         public bool AuthenticateUser(NetworkCredential credential)
@@ -38,29 +45,7 @@ namespace SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories
             new SqlParameter("@username", SqlDbType.NVarChar, 50) { Value = credential.UserName },
             new SqlParameter("@password", SqlDbType.NVarChar, 50) { Value = credential.Password });
 
-            return userCount > 0;
-
-            //bool validUser = false;
-            //try
-            //{
-            //    using (var connection = GetConnection())
-            //    using (var command = new SqlCommand())
-            //    {
-            //        connection.Open();
-            //        command.Connection = connection;
-            //        command.CommandText = "SELECT COUNT(*) FROM [User] WHERE [username]=@username AND [password]=@password";
-            //        command.Parameters.Add("@username", SqlDbType.NVarChar, 50).Value = credential.UserName;
-            //        command.Parameters.Add("@password", SqlDbType.NVarChar, 50).Value = credential.Password;
-
-            //        int userCount = Convert.ToInt32(command.ExecuteScalar());
-            //        validUser = userCount > 0;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Debug.WriteLine($"Error while authenticating user: {ex.Message}");
-            //}
-            //return validUser;
+            return userCount > 0;           
         }
 
         public void Edit(UserModel userModel)
