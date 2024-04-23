@@ -70,7 +70,11 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
         public MainViewModel()
         {
-            _userAccountPreview = new UserAccountPreview(new UserRepository(App.ConnectionString));
+            var userServiceFactory = new UserServiceFactory(App.ConnectionString);
+            var connectionManager = userServiceFactory.CreateSqlConnectionManager();
+            var commandExecutor = userServiceFactory.CreateSqlCommandExecutor(connectionManager);
+            
+            _userAccountPreview = new UserAccountPreview(new UserRepository(connectionManager, commandExecutor));
 
             // can be with can execute or just execute.
             AddNewBuyerViewCommand = new RelayCommand(ExecuteAddNewBuyerViewCommand);

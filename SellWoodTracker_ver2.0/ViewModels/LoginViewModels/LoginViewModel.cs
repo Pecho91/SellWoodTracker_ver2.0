@@ -13,6 +13,7 @@ using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories;
 using SellWoodTracker_ver2._0.Models.Buyers;
 
 using SellWoodTracker_ver2_0.Services.LoginServices;
+using SellWoodTracker_ver2_0.Services.UserServices;
 using SellWoodTracker_ver2_0.ViewModels.Base;
 using SellWoodTracker_ver2_0.ViewModels.RelayCommands;
 using SellWoodTracker_ver2_0.Views;
@@ -93,8 +94,12 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
             {
                 throw new InvalidOperationException("Connection string is not initialized.");
             }
-        
-            _authenticationLoginService = new AuthenticationLoginService(new UserRepository(App.ConnectionString));
+
+            var userServiceFactory = new UserServiceFactory(App.ConnectionString);
+            var connectionManager = userServiceFactory.CreateSqlConnectionManager();
+            var commandExecutor = userServiceFactory.CreateSqlCommandExecutor(connectionManager);
+
+            _authenticationLoginService = new AuthenticationLoginService(new UserRepository(connectionManager, commandExecutor));
             _userIdentityService = new UserIdentityService();
             LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             //RecoverPasswordCommand = new RelayCommand(p => ExecuteRecoverPasswordCommand("", ""));

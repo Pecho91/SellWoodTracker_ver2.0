@@ -18,12 +18,13 @@ namespace SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly SqlCommandExecutor _commandExecutor;
-
-        public UserRepository(string connectionString) 
+        private readonly ISqlConnectionManager _connectionManager;
+        private readonly ISqlCommandExecutor _commandExecutor;
+        
+        public UserRepository(ISqlConnectionManager connectionManager, ISqlCommandExecutor commandExecutor) 
         {
-            var connectionManager = new SqlConnectionManager(connectionString);
-            _commandExecutor = new SqlCommandExecutor(connectionManager);
+            _connectionManager = connectionManager;
+            _commandExecutor = commandExecutor;          
         }
 
         public void Add(UserModel userModel)

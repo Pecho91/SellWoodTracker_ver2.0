@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserConnections
 {
-    public class SqlConnectionManager
+    public class SqlConnectionManager : ISqlConnectionManager
     {
         private readonly string _connectionString;
 
