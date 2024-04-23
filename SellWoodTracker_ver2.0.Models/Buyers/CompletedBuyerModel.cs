@@ -11,8 +11,8 @@ namespace SellWoodTracker_ver2._0.Models.Buyers
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string EmailAddress { get; set; }
         public string CellphoneNumber { get; set; }
+        public string EmailAddress { get; set; }
         public DateTime DateTime { get; set; }
 
         private decimal _metricAmount;

@@ -41,7 +41,7 @@
         <Grid>
             
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="280"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -197,7 +197,7 @@
 
                 <ContentControl Content="{Binding CurrentChildView}"
                                 Grid.Row="2"
-                                Margin="10">
+                                Margin="20,10,10,10">
                     
                 </ContentControl>
                 

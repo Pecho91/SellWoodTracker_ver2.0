@@ -76,7 +76,6 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             
             _userAccountPreview = new UserAccountPreview(new UserRepository(connectionManager, commandExecutor));
 
-            // can be with can execute or just execute.
             AddNewBuyerViewCommand = new RelayCommand(ExecuteAddNewBuyerViewCommand);
             RequestedBuyersViewCommand = new RelayCommand(ExecuteRequestedBuyersViewCommand);
             CompletedBuyersViewCommand = new RelayCommand(ExecuteCompletedBuyersViewCommand);
