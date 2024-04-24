@@ -23,9 +23,9 @@ namespace SellWoodTracker_ver2_0.Services.BuyerServices
         {
             return _requestedBuyerRepository.GetAll();
         }
-        public IEnumerable<RequestedBuyerModel> GetAllCompletedBuyers()
+        public IEnumerable<CompletedBuyerModel> GetAllCompletedBuyers()
         {
-            return _requestedBuyerRepository.GetAll();
+            return _completedBuyerRepository.GetAll();
         }
 
         public void AddRequestedBuyer(RequestedBuyerModel entity)
@@ -48,13 +48,16 @@ namespace SellWoodTracker_ver2_0.Services.BuyerServices
             var requestedBuyer = _requestedBuyerRepository.RemoveAndReturn(id);
             var completedBuyer = new CompletedBuyerModel
             {
-                
-                Id = requestedBuyer.Id,
                 FirstName = requestedBuyer.FirstName,
                 LastName = requestedBuyer.LastName,
-                
+                CellphoneNumber = requestedBuyer.CellphoneNumber,
+                EmailAddress = requestedBuyer.EmailAddress,
+                DateTime = requestedBuyer.DateTime,
+                MetricAmount = requestedBuyer.MetricAmount,
+                MetricPrice = requestedBuyer.MetricPrice,
+                GrossIncome = requestedBuyer.GrossIncome,              
             };
-            _completedBuyerRepository.Add(completedBuyer);
+            _completedBuyerRepository.AddAndReturn(completedBuyer);
         }
 
     } 

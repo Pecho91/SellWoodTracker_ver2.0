@@ -15,6 +15,7 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyeInterface
         void Edit(T entity);
         void Remove(int id);
         T GetById(int id);
+        T AddAndReturn(T entity);
         T RemoveAndReturn(int id);
         T GetByFirstName(string firstName);
         IEnumerable<T> GetAll();

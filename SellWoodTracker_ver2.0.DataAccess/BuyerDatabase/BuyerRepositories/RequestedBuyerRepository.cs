@@ -44,6 +44,13 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories
             return _context.RequestedBuyers.Find(id);
         }
 
+        public RequestedBuyerModel AddAndReturn(RequestedBuyerModel entity)
+        {
+            _context.RequestedBuyers.Add(entity);
+            _context.SaveChanges();
+            return entity;
+        }
+
         public RequestedBuyerModel RemoveAndReturn(int id)
         {
             var buyer = _context.RequestedBuyers.Find(id);

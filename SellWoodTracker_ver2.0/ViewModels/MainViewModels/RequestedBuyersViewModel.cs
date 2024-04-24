@@ -43,19 +43,35 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             }
         }
 
+        public ICommand MoveRequestedBuyerToCompletedCommand { get; }
         public ICommand DeleteRequestedBuyerCommand { get; }
         public RequestedBuyersViewModel()
         {
 
             _buyersServices = new BuyersServices(new RequestedBuyerRepository(App.ConnectionString), new CompletedBuyerRepository(App.ConnectionString));
 
+            MoveRequestedBuyerToCompletedCommand = new RelayCommand(ExecuteMoveRequestedBuyerToCompleted);
             DeleteRequestedBuyerCommand = new RelayCommand(ExecuteDeleteRequestedBuyer);
             LoadRequestedBuyers();
         }
 
         private void LoadRequestedBuyers()
         {
-            RequestedBuyers = new ObservableCollection<RequestedBuyerModel>(_buyersServices.GetAllRequestedBuyers());
+            RequestedBuyers = new ObservableCollection<RequestedBuyerModel>(_buyersServices.GetAllRequestedBuyers());           
+        }
+
+        public void ExecuteMoveRequestedBuyerToCompleted(object obj)
+        {
+            if (_selectedRequestedBuyer != null)
+            {
+                bool confirmed = ShowDeleteConfirmationDialog("Are you sure you want to complete the Buyer?", "Confirmation");
+                if (confirmed)
+                {
+                    _buyersServices.MoveRequestedBuyerToCompleted(SelectedRequestedBuyer.Id);
+                    RequestedBuyers.Remove(SelectedRequestedBuyer);                    
+                }
+                Debug.WriteLine("CompleteSelectedButton clicked");
+            }
         }
 
         private void ExecuteDeleteRequestedBuyer(object obj)
@@ -69,7 +85,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
                     RequestedBuyers.Remove(SelectedRequestedBuyer);
                 }
             }
-            Debug.WriteLine("RemoveRequestedBuyer clicked");
+            Debug.WriteLine("DeleteSelectedButton clicked");
         }
 
         private bool ShowDeleteConfirmationDialog(string messageText, string captionText)

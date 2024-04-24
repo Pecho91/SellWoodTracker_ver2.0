@@ -25,6 +25,7 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories
         public void Add(CompletedBuyerModel entity)
         {
             _context.CompletedBuyers.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Edit(CompletedBuyerModel entity)
@@ -41,6 +42,13 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories
         public CompletedBuyerModel GetById(int id)
         {
             return _context.CompletedBuyers.Find(id);
+        }
+
+        public CompletedBuyerModel AddAndReturn(CompletedBuyerModel entity)
+        {
+            _context.CompletedBuyers.Add(entity);
+            _context.SaveChanges();
+            return entity;
         }
 
         public CompletedBuyerModel RemoveAndReturn(int id)

@@ -3,9 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SellWoodTracker_ver2_0.Views.Main"
+             xmlns:local="clr-namespace:SellWoodTracker_ver2_0.Views.Main" 
+             xmlns:viewModel="clr-namespace:SellWoodTracker_ver2_0.ViewModels.MainViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <viewModel:CompletedBuyersViewModel/>
+    </UserControl.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -32,29 +38,35 @@
                 Grid.Column ="1"
                 Orientation="Horizontal"
                 HorizontalAlignment="Right">
-              
-                <Button  Height="30"
-                 Background="LightSlateGray">
-                    <TextBlock Text="Delete Selected"
-                       FontSize="18"
-                       FontWeight="Medium"
-                       Margin="5,0,5,0"/>
+
+                <Button x:Name="DeleteCompletedBuyerButton" 
+                        Height="30"
+                         Background="LightSlateGray"
+                         Content="Delete Selected"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        FontFamily="Montserrat"
+                        Command="{Binding DeleteCompletedBuyerCommand}"
+                        Padding="5,0,5,0">
                 </Button>
 
             </StackPanel>
 
         </Grid>
-        <DataGrid x:Name="CompletedBuyersDataGrid"
+        <DataGrid x:Name="RequestedBuyersDataGrid"
+                  FontSize="16"
                   Grid.Row="1"
-                  Margin="0,5,0,0">
-                    
+                  Margin="0,5,0,0"
+                  ItemsSource="{Binding CompletedBuyers}"
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding SelectedCompletedBuyer, Mode=TwoWay}"> 
             <DataGrid.Columns>
                 <DataGridTextColumn Header=" ID " Binding="{Binding Id}" />
                 <DataGridTextColumn Header=" First Name " Binding="{Binding FirstName}" />
                 <DataGridTextColumn Header=" Last Name " Binding="{Binding LastName}" />
                 <DataGridTextColumn Header=" Cellphone Number " Binding="{Binding CellphoneNumber}" />
                 <DataGridTextColumn Header=" Email Address " Binding="{Binding EmailAddress}" />
-                <DataGridTextColumn Header=" Date Time " Binding="{Binding DateTime}" />
+                <DataGridTextColumn Header=" Date Time " Binding="{Binding DateTime, StringFormat=dd.MM.yyyy. HH:mm}" />
                 <DataGridTextColumn Header=" Metric Amount [m^3] " Binding="{Binding MetricAmount}" />
                 <DataGridTextColumn Header=" Metric Price [€] " Binding="{Binding MetricPrice}" />
                 <DataGridTextColumn Header="Gross Income [€] " Binding="{Binding GrossIncome}" />
