@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyeInterface;
+using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerInterface;
 using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerContext;
 using SellWoodTracker_ver2._0.Models.Buyers;
 using System;

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SellWoodTracker_ver2._0.Models.Buyers;
 
-namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyeInterface
+namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerInterface
 {
     public interface IBuyerRepository<T> where T : class
     {

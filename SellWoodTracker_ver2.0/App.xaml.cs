@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows;
 using System.Windows.Threading;
 using Microsoft.Identity.Client;
+using SellWoodTracker_ver2_0.Locators;
 using SellWoodTracker_ver2_0.Views.Login;
 using SellWoodTracker_ver2_0.Views.Main;
 
@@ -23,6 +24,9 @@ namespace SellWoodTracker_ver2_0.Views
         protected override void OnStartup(StartupEventArgs e)
         {
             ConnectionString = ConfigurationManager.ConnectionStrings["LocalSqlConnection"].ConnectionString;
+            RequestedBuyerServicesLocator.Initialize(ConnectionString);
+            CompletedBuyerServicesLocator.Initialize(ConnectionString);
+
             base.OnStartup(e);
 
             Dispatcher.BeginInvoke(new Action(() =>

@@ -7,7 +7,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyeInterface;
+using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerInterface;
 using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserInterfaces;
 using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserRepositories;
 using SellWoodTracker_ver2._0.Models.Buyers;
