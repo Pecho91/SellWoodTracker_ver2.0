@@ -44,6 +44,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         public AddNewBuyerViewModel()
         {
             _addRequestedBuyer = new AddRequestedBuyer(RequestedBuyerServicesLocator.RequestedBuyerAdder);
+
             _newBuyer = new RequestedBuyerModel();
             CetZoneDataTime();
           

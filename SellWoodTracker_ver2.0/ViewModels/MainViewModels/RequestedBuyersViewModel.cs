@@ -1,6 +1,7 @@
 ﻿using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories;
 using SellWoodTracker_ver2._0.Models.Buyers;
-using SellWoodTracker_ver2_0.Services.BuyerServices;
+using SellWoodTracker_ver2_0.Locators;
+using SellWoodTracker_ver2_0.Services.RequestedBuyerServices;
 using SellWoodTracker_ver2_0.ViewModels.Base;
 using SellWoodTracker_ver2_0.ViewModels.RelayCommands;
 using SellWoodTracker_ver2_0.Views;
@@ -18,7 +19,9 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 {
     public class RequestedBuyersViewModel : ViewModelBase
     {
-        private BuyersServices _buyersServices;
+        private MoveRequestedBuyer _moveRequestedBuyer;
+        private DeleteRequestedBuyer _deleteRequestedBuyer;
+        private PreviewRequestedBuyers _previewRequestedBuyer;
 
         private ObservableCollection<RequestedBuyerModel> _requestedBuyers;
         public ObservableCollection<RequestedBuyerModel> RequestedBuyers
@@ -48,7 +51,9 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         public RequestedBuyersViewModel()
         {
 
-            _buyersServices = new BuyersServices(new RequestedBuyerRepository(App.ConnectionString), new CompletedBuyerRepository(App.ConnectionString));
+            _moveRequestedBuyer = new MoveRequestedBuyer(RequestedBuyerServicesLocator.RequestedBuyerRemover, CompletedBuyerServicesLocator.CompletedBuyerAdder);
+            _deleteRequestedBuyer = new DeleteRequestedBuyer(RequestedBuyerServicesLocator.RequestedBuyerRemover);
+            _previewRequestedBuyer = new PreviewRequestedBuyers(RequestedBuyerServicesLocator.RequestedBuyerGetter);
 
             MoveRequestedBuyerToCompletedCommand = new RelayCommand(ExecuteMoveRequestedBuyerToCompleted);
             DeleteRequestedBuyerCommand = new RelayCommand(ExecuteDeleteRequestedBuyer);
@@ -57,7 +62,8 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
         private void LoadRequestedBuyers()
         {
-            RequestedBuyers = new ObservableCollection<RequestedBuyerModel>(_buyersServices.GetAllRequestedBuyers());           
+            //TODO get all requested
+            RequestedBuyers = new ObservableCollection<RequestedBuyerModel>(_previewRequestedBuyer.GetAllRequestedBuyers());           
         }
 
         public void ExecuteMoveRequestedBuyerToCompleted(object obj)
@@ -67,7 +73,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
                 bool confirmed = ShowDeleteConfirmationDialog("Are you sure you want to complete the Buyer?", "Confirmation");
                 if (confirmed)
                 {
-                    _buyersServices.MoveRequestedBuyerToCompleted(SelectedRequestedBuyer.Id);
+                    _moveRequestedBuyer.MoveRequestedBuyerToCompleted(SelectedRequestedBuyer.Id);
                     RequestedBuyers.Remove(SelectedRequestedBuyer);                    
                 }
                 Debug.WriteLine("CompleteSelectedButton clicked");
@@ -81,7 +87,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
                 bool confirmed = ShowDeleteConfirmationDialog("Are you sure you want to delete?", "Confirmation");
                 if (confirmed)
                 {
-                    _buyersServices.RemoveRequestedBuyer(SelectedRequestedBuyer.Id);
+                    _deleteRequestedBuyer.RemoveRequestedBuyer(SelectedRequestedBuyer.Id);
                     RequestedBuyers.Remove(SelectedRequestedBuyer);
                 }
             }

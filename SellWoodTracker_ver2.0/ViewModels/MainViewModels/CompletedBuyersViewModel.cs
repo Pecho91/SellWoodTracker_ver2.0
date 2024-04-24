@@ -1,6 +1,5 @@
 ﻿using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories;
 using SellWoodTracker_ver2._0.Models.Buyers;
-using SellWoodTracker_ver2_0.Services.BuyerServices;
 using SellWoodTracker_ver2_0.ViewModels.Base;
 using SellWoodTracker_ver2_0.ViewModels.RelayCommands;
 using SellWoodTracker_ver2_0.Views;
@@ -13,12 +12,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using SellWoodTracker_ver2_0.Services.CompletedBuyerServices;
+using SellWoodTracker_ver2_0.Locators;
 
 namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 {
     public class CompletedBuyersViewModel : ViewModelBase
     {
-        private BuyersServices _buyersServices;
+        private DeleteCompletedBuyer _deleteCompletedBuyer;
+        private PreviewCompletedBuyers _previewCompletedBuyers;
 
         private ObservableCollection<CompletedBuyerModel> _completedBuyers;
         public ObservableCollection<CompletedBuyerModel> CompletedBuyers
@@ -47,7 +49,8 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         public CompletedBuyersViewModel()
         {
 
-            _buyersServices = new BuyersServices(new RequestedBuyerRepository(App.ConnectionString), new CompletedBuyerRepository(App.ConnectionString));
+            _deleteCompletedBuyer = new DeleteCompletedBuyer(CompletedBuyerServicesLocator.CompletedBuyerRemover);
+            _previewCompletedBuyers = new PreviewCompletedBuyers(CompletedBuyerServicesLocator.CompletedBuyerGetter);
 
             DeleteCompletedBuyerCommand = new RelayCommand(ExecuteDeleteCompletedBuyer);
             LoadCompletedBuyers();
@@ -55,7 +58,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
         private void LoadCompletedBuyers()
         {
-            CompletedBuyers = new ObservableCollection<CompletedBuyerModel>(_buyersServices.GetAllCompletedBuyers());
+            CompletedBuyers = new ObservableCollection<CompletedBuyerModel>(_previewCompletedBuyers.GetAllCompletedBuyers());
         }
 
         private void ExecuteDeleteCompletedBuyer(object obj)
@@ -65,7 +68,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
                 bool confirmed = ShowDeleteConfirmationDialog("Are you sure you want to delete?", "Confirmation");
                 if (confirmed)
                 {
-                    _buyersServices.RemoveCompletedBuyer(SelectedCompletedBuyer.Id);
+                    _deleteCompletedBuyer.RemoveCompletedBuyer(SelectedCompletedBuyer.Id);
                     CompletedBuyers.Remove(SelectedCompletedBuyer);
                 }
             }
