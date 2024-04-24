@@ -39,9 +39,6 @@ namespace SellWoodTracker_ver2_0.Views
                     }
                 };
             }));
-
-
-
         }       
     }
 }

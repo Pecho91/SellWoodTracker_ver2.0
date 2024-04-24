@@ -58,7 +58,7 @@
                 <TextBlock Text="Log In"  
                              Background="Transparent"
                              Foreground="Black"
-                             FontSize="18"
+                             FontSize="20"
                              FontFamily ="Monteserrat"
                              FontWeight="Medium"
                              Grid.Row="0"
@@ -126,7 +126,7 @@
 
                     <TextBlock Text="by Pecho"
                                Foreground="Black"
-                               FontSize="16"                               
+                               FontSize="18"                               
                                FontFamily="Montserrat"
                                TextWrapping="Wrap"
                                HorizontalAlignment="Center"
@@ -134,14 +134,14 @@
 
                     <TextBlock Text="Username:"
                                Foreground="Black"
-                               FontSize="18"                               
+                               FontSize="20"                               
                                FontFamily="Montserrat"
                                FontWeight="Medium"                                                            
                                Margin="0,25,0,0"/>
 
                     <TextBox x:Name="txtUser"
                              Text="{Binding Username, UpdateSourceTrigger=PropertyChanged }"
-                             FontSize="18"
+                             FontSize="20"
                              FontFamily="Montserrat"
                              FontWeight="Medium"
                              Background="Transparent"
@@ -154,7 +154,7 @@
                                        
                     <TextBlock Text="Password:"                               
                                Foreground="Black"
-                               FontSize="18"                               
+                               FontSize="20"                               
                                FontFamily="Montserrat"
                                FontWeight="Medium"                                                            
                                Margin="0,20,0,0"/>
@@ -167,7 +167,7 @@
 
                     <TextBlock Text="{Binding ErrorMessage}"                               
                                Foreground="Black"
-                               FontSize="18"                               
+                               FontSize="16"                               
                                FontFamily="Montserrat"
                                FontWeight="Medium"                                                            
                                Margin="0,5,0,0"
@@ -176,7 +176,7 @@
                     <Button x:Name="btnLogin"
                             Command="{Binding LoginCommand}"
                             Content="LOG IN"
-                            FontSize="18"
+                            FontSize="20"
                             FontFamily="Montserrat"
                             FontWeight="Medium"
                             Background="Transparent"

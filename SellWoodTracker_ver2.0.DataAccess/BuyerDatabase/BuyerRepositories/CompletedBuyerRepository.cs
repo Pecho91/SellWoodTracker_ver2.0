@@ -1,4 +1,6 @@
-﻿using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyeInterface;
+﻿using Microsoft.EntityFrameworkCore;
+using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyeInterface;
+using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerContext;
 using SellWoodTracker_ver2._0.Models.Buyers;
 using System;
 using System.Collections.Generic;
@@ -10,34 +12,55 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories
 {
     public class CompletedBuyerRepository : IBuyerRepository<CompletedBuyerModel>
     {
+        private readonly BuyerDbContext _context;
+
+        public CompletedBuyerRepository(string connectionString)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<BuyerDbContext>();
+            optionsBuilder.UseSqlServer(connectionString);
+
+            _context = new BuyerDbContext(optionsBuilder.Options);
+        }
+
         public void Add(CompletedBuyerModel entity)
         {
-            throw new NotImplementedException();
+            _context.CompletedBuyers.Add(entity);
         }
 
         public void Edit(CompletedBuyerModel entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public IEnumerable<CompletedBuyerModel> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.CompletedBuyers.ToList();
         }
 
         public CompletedBuyerModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.CompletedBuyers.Find(id);
         }
 
-        public CompletedBuyerModel GetByUsername(string username)
+        public CompletedBuyerModel RemoveAndReturn(int id)
         {
-            throw new NotImplementedException();
+            var buyer = _context.CompletedBuyers.Find(id);
+            _context.CompletedBuyers.Remove(buyer);
+            _context.SaveChanges();
+            return buyer;
+        }
+
+        public CompletedBuyerModel GetByFirstName(string firstName)
+        {
+            return _context.CompletedBuyers.FirstOrDefault(b => b.FirstName == firstName);
         }
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            var entity = _context.CompletedBuyers.Find(id);
+            _context.CompletedBuyers.Remove(entity);
+            _context.SaveChanges();
         }
     }
 }

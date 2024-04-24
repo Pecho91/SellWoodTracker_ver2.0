@@ -2,11 +2,16 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SellWoodTracker_ver2_0.Views.Main"
+             xmlns:viewModel="clr-namespace:SellWoodTracker_ver2_0.ViewModels.MainViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
+
+    <UserControl.DataContext>
+        <viewModel:AddNewBuyerViewModel/>
+    </UserControl.DataContext>
+
     <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -79,33 +84,54 @@
 
                  <TextBox 
                          Style="{StaticResource textBoxStyle2}"
-                         Text="{Binding NewBuyer.FirstName, Mode=TwoWay}"/>
+                         Text="{Binding NewBuyer.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                  <TextBox 
                          Style="{StaticResource textBoxStyle2}"
-                         Text="{Binding NewBuyer.LastName, Mode=TwoWay}"/>
+                         Text="{Binding NewBuyer.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                  <TextBox 
                          Style="{StaticResource textBoxStyle2}"
-                         Text="{Binding NewBuyer.CellphoneNumber, Mode=TwoWay}"/>
+                         Text="{Binding NewBuyer.CellphoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                  <TextBox 
                          Style="{StaticResource textBoxStyle2}"
-                         Text="{Binding NewBuyer.EmailAddress, Mode=TwoWay}"/>
+                         Text="{Binding NewBuyer.EmailAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                  <TextBox 
                          Style="{StaticResource textBoxStyle2}"                        
-                         Text="{Binding NewBuyer.DateTime, Mode=TwoWay}"/>
+                         Text="{Binding NewBuyer.DateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                  <TextBox 
                          Style="{StaticResource textBoxStyle2}"
-                         Text="{Binding NewBuyer.MetricAmount, Mode=TwoWay}"/>
+                         Text="{Binding NewBuyer.MetricAmount, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
 
                  <TextBox 
                          Style="{StaticResource textBoxStyle2}"
-                         Text="{Binding NewBuyer.MetricPrice, Mode=TwoWay}"/>    
-                
-                
+                         Text="{Binding NewBuyer.MetricPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Button  x:Name="AddNewBuyerButton"
+                          Height="35"
+                          Background="LightSlateGray"
+                          Margin="25,20,25,0"
+                          Content="Add New Buyer"
+                          FontSize="18"
+                          FontWeight="Medium"
+                          FontFamily="Montserrat"
+                          Command="{Binding AddNewBuyerCommand}">
+                </Button>
+
+                <Button x:Name="ClearFieldsButton"
+                         Height="35"
+                         Background="LightSlateGray"
+                        Content="Clear Fields"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        FontFamily="Montserrat"
+                        Command="{Binding ClearFieldsCommand}"
+                         Margin="25,10,25,0">
+                    
+                </Button>
 
             </StackPanel>
 

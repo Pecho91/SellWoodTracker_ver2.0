@@ -24,32 +24,46 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories
 
         public void Add(RequestedBuyerModel entity)
         {
-            throw new NotImplementedException();
+            _context.RequestedBuyers.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Edit(RequestedBuyerModel entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public IEnumerable<RequestedBuyerModel> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.RequestedBuyers.ToList();
         }
 
         public RequestedBuyerModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.RequestedBuyers.Find(id);
         }
 
-        public RequestedBuyerModel GetByUsername(string username)
+        public RequestedBuyerModel RemoveAndReturn(int id)
         {
-            throw new NotImplementedException();
+            var buyer = _context.RequestedBuyers.Find(id);
+            _context.RequestedBuyers.Remove(buyer);
+            _context.SaveChanges();
+            return buyer;
+        }
+
+        public RequestedBuyerModel GetByFirstName(string firstName)
+        {
+            return _context.RequestedBuyers.FirstOrDefault(b => b.FirstName == firstName);    
         }
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            var entity = _context.RequestedBuyers.Find(id);
+            _context.RequestedBuyers.Remove(entity);
+            _context.SaveChanges();
         }
+
+       
     }
 }
