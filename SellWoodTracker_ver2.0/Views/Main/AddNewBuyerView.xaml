@@ -100,7 +100,7 @@
 
                  <TextBox 
                          Style="{StaticResource textBoxStyle2}"                        
-                         Text="{Binding NewBuyer.DateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                         Text="{Binding NewBuyer.DateTime, Mode=TwoWay, StringFormat=dd.MM.yyyy. HH:mm, UpdateSourceTrigger=PropertyChanged}"/>
 
                  <TextBox 
                          Style="{StaticResource textBoxStyle2}"

@@ -44,6 +44,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         {
             _buyersServices = new BuyersServices(new RequestedBuyerRepository(App.ConnectionString), new CompletedBuyerRepository(App.ConnectionString));
             _newBuyer = new RequestedBuyerModel();
+            CetZoneDataTime();
           
             AddNewBuyerCommand = new RelayCommand(ExecuteAddNewBuyerCommand);
         }
@@ -55,6 +56,11 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             OnPropertyChanged(nameof(NewBuyer));
         }
 
-        
+        private void CetZoneDataTime()
+        {
+            TimeZoneInfo cetZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+            DateTime cetTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, cetZone);
+            _newBuyer.DateTime = cetTime;          
+        }
     }
 }

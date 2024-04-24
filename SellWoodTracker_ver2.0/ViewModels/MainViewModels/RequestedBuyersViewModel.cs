@@ -62,7 +62,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         {
             if (_selectedRequestedBuyer != null)
             {
-                bool confirmed = ShowDeleteConfirmationDialog("Are you sure you want to delete?");
+                bool confirmed = ShowDeleteConfirmationDialog("Are you sure you want to delete?", "Confirmation");
                 if (confirmed)
                 {
                     _buyersServices.RemoveRequestedBuyer(SelectedRequestedBuyer.Id);
@@ -72,9 +72,9 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             Debug.WriteLine("RemoveRequestedBuyer clicked");
         }
 
-        private bool ShowDeleteConfirmationDialog(string messageBoxText)
+        private bool ShowDeleteConfirmationDialog(string messageText, string captionText)
         {
-            MessageBoxResult result = MessageBox.Show(messageBoxText, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show(messageText, captionText, MessageBoxButton.YesNo, MessageBoxImage.Question);
             return result == MessageBoxResult.Yes;
         }
     }
