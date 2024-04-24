@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 {
@@ -36,8 +37,6 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             }
         }
 
-       
-
         public ICommand AddNewBuyerCommand { get; }
         public ICommand ClearFieldsCommand { get; }
 
@@ -48,7 +47,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             _newBuyer = new RequestedBuyerModel();
             CetZoneDataTime();
           
-            AddNewBuyerCommand = new RelayCommand(ExecuteAddNewBuyerCommand);
+            AddNewBuyerCommand = new RelayCommand(ExecuteAddNewBuyerCommand, CanExecuteAddNewBuyerCommand);
         }
 
         private void ExecuteAddNewBuyerCommand(object obj)
@@ -58,6 +57,27 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             CetZoneDataTime();
             OnPropertyChanged(nameof(NewBuyer));
             
+        }
+        private bool CanExecuteAddNewBuyerCommand(object obj)
+        {
+            var nullableProperties = new List<string> { "CellphoneNumber", "EmailAddress" };
+
+            var type = typeof(RequestedBuyerModel);
+            var properties = type.GetProperties();
+            foreach (var property in properties)
+            {
+                if (nullableProperties.Contains(property.Name))
+                {
+                    continue;
+                }
+
+                var value = property.GetValue(_newBuyer);
+                if (value == null || string.IsNullOrWhiteSpace(value.ToString()))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void CetZoneDataTime()
