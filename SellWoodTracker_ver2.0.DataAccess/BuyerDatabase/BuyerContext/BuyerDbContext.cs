@@ -11,10 +11,15 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerContext
 {
     public class BuyerDbContext : DbContext
     {
-        public DbSet<RequestedBuyerModel> RequestedBuyers { get; set; }
-        public DbSet<CompletedBuyerModel> CompletedBuyers { get; set; }
+        public virtual DbSet<RequestedBuyerModel> RequestedBuyers { get; set; }
+        public virtual DbSet<CompletedBuyerModel> CompletedBuyers { get; set; }
      
         public BuyerDbContext(DbContextOptions<BuyerDbContext> options) : base(options)
+        {
+
+        }
+
+        public BuyerDbContext() 
         {
 
         }
