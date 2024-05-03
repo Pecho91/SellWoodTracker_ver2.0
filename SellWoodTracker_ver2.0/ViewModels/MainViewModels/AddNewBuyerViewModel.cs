@@ -8,9 +8,11 @@ using SellWoodTracker_ver2_0.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -52,12 +54,17 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
         private void ExecuteAddNewBuyerCommand(object obj)
         {
-            _addRequestedBuyer.AddNewRequestedBuyer(_newBuyer);
-            _newBuyer = new RequestedBuyerModel();
-            CetZoneDataTime();
-            OnPropertyChanged(nameof(NewBuyer));
-            
+            bool confirmed = ShowAddNewBuyerConfirmationDialog("Do you want to ADD new Buyer?", "Confirmation");
+            if (confirmed)
+            {
+                _addRequestedBuyer.AddNewRequestedBuyer(_newBuyer);
+                _newBuyer = new RequestedBuyerModel();
+                CetZoneDataTime();
+                OnPropertyChanged(nameof(NewBuyer));
+            }         
+            Debug.WriteLine("RemoveCompletedBuyerButton clicked");
         }
+
         private bool CanExecuteAddNewBuyerCommand(object obj)
         {
             var nullableProperties = new List<string> { "CellphoneNumber", "EmailAddress" };
@@ -85,6 +92,12 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             TimeZoneInfo cetZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
             DateTime cetTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, cetZone);
             _newBuyer.DateTime = cetTime;          
+        }
+
+        private bool ShowAddNewBuyerConfirmationDialog(string messageText, string captionText)
+        {
+            MessageBoxResult result = MessageBox.Show(messageText, captionText, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            return result == MessageBoxResult.Yes;
         }
     }
 }
