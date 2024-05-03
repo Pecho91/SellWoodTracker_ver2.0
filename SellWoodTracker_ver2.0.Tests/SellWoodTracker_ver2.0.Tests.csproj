@@ -23,10 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BuyerDatabaseTests\CompletedBuyerRepositoriesTests\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SellWoodTracker_ver2.0.DataAccess\SellWoodTracker_ver2.0.DataAccess.csproj" />
     <ProjectReference Include="..\SellWoodTracker_ver2.0.Models\SellWoodTracker_ver2.0.Models.csproj" />
   </ItemGroup>

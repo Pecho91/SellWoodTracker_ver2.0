@@ -23,7 +23,8 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.RequestedBuyerReposit
         {
             var buyer = _context.RequestedBuyers.Find(id);
             _context.RequestedBuyers.Remove(buyer);
-            _context.SaveChanges();
+            _context.SaveChanges(); 
+            
         }
 
         public RequestedBuyerModel RemoveAndReturn(int id)
