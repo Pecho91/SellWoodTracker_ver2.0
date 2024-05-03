@@ -11,16 +11,16 @@ namespace SellWoodTracker_ver2_0.Services.LoginServices
 {
     public class AuthenticationLoginService
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserAuthenticator _userAuthenticator;
 
-        public AuthenticationLoginService(IUserRepository userRepository)
+        public AuthenticationLoginService(IUserAuthenticator userAuthenticator)
         {
-            _userRepository = userRepository;
+            _userAuthenticator = userAuthenticator;
         }
 
         public bool AuthenticateLoginUser(string username, SecureString password)
         {
-            return _userRepository.AuthenticateUser(new NetworkCredential(username, password));
+            return _userAuthenticator.AuthenticateUser(new NetworkCredential(username, password));
         }
     }
 }

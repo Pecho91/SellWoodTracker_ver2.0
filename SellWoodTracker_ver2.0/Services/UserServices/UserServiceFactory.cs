@@ -1,5 +1,5 @@
-﻿using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserConnections;
-using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserInterfaces;
+﻿using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserConnectionInterfaces;
+using SellWoodTracker_ver2._0.DataAccess.UserDatabase.UserConnections;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -99,7 +99,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.LoginViewModels
             var connectionManager = userServiceFactory.CreateSqlConnectionManager();
             var commandExecutor = userServiceFactory.CreateSqlCommandExecutor(connectionManager);
 
-            _authenticationLoginService = new AuthenticationLoginService(new UserRepository(connectionManager, commandExecutor));
+            _authenticationLoginService = new AuthenticationLoginService(new UserAuthenticator(connectionManager, commandExecutor));
             _userIdentityService = new UserIdentityService();
             LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             //RecoverPasswordCommand = new RelayCommand(p => ExecuteRecoverPasswordCommand("", ""));

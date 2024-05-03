@@ -10,11 +10,11 @@ namespace SellWoodTracker_ver2_0.Services.UserServices
 {
     public class UserAccountPreview
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserGetter _userGetter;
 
-        public UserAccountPreview(IUserRepository userRepository)
+        public UserAccountPreview(IUserGetter userGetter)
         {
-            _userRepository = userRepository;
+            _userGetter = userGetter;
         }
 
         public UserAccountModel GetCurrentUserAccount()
@@ -22,7 +22,7 @@ namespace SellWoodTracker_ver2_0.Services.UserServices
             var userName = Thread.CurrentPrincipal?.Identity?.Name;
             if (userName != null)
             {
-                var user = _userRepository.GetByUsername(userName);
+                var user = _userGetter.GetByUsername(userName);
                 if (user != null)
                 {
                     return new UserAccountModel
