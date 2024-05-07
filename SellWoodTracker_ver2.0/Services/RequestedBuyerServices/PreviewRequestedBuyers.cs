@@ -22,6 +22,7 @@ namespace SellWoodTracker_ver2_0.Services.RequestedBuyerServices
         public IEnumerable<RequestedBuyerModel> GetAllRequestedBuyers()
         {
             return _requestedBuyerGetter.GetAll();
+           
         }
     }
 }

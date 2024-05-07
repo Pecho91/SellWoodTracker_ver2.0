@@ -57,12 +57,18 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             bool confirmed = ShowAddNewBuyerConfirmationDialog("Do you want to ADD new Buyer?", "Confirmation");
             if (confirmed)
             {
+                CalculateGrossIncome();
                 _addRequestedBuyer.AddNewRequestedBuyer(_newBuyer);
                 _newBuyer = new RequestedBuyerModel();
                 CetZoneDataTime();
                 OnPropertyChanged(nameof(NewBuyer));
             }         
             Debug.WriteLine("RemoveCompletedBuyerButton clicked");
+        }
+
+        private void CalculateGrossIncome()
+        {
+            _newBuyer.GrossIncome = _newBuyer.MetricAmount * _newBuyer.MetricPrice;
         }
 
         private bool CanExecuteAddNewBuyerCommand(object obj)
