@@ -37,7 +37,7 @@
 
         <Border CornerRadius="8"
             BorderThickness="0"
-            Opacity="0.92"
+            Opacity="0.80"
             Background="Gray">
 
             <Grid>
