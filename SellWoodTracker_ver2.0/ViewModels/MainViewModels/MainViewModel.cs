@@ -68,6 +68,8 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         public ICommand RequestedBuyersViewCommand {  get; set; }
         public ICommand CompletedBuyersViewCommand { get; set;}
 
+        public ICommand ReportViewCommand { get; set; }
+
         public MainViewModel()
         {
             var userServiceFactory = new UserServiceFactory(App.ConnectionString);
@@ -79,6 +81,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             AddNewBuyerViewCommand = new RelayCommand(ExecuteAddNewBuyerViewCommand);
             RequestedBuyersViewCommand = new RelayCommand(ExecuteRequestedBuyersViewCommand);
             CompletedBuyersViewCommand = new RelayCommand(ExecuteCompletedBuyersViewCommand);
+            ReportViewCommand = new RelayCommand(ExecuteReportViewCommand);
 
             ExecuteRequestedBuyersViewCommand(null);           
             LoadCurrentUserData();
@@ -115,6 +118,12 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         {
             CurrentChildView = new CompletedBuyersViewModel();
             Caption = "COMP_BUYERS";
+        }
+
+        private void ExecuteReportViewCommand(object obj)
+        {
+            CurrentChildView = new ReportViewModel();
+            Caption = "REPORT";
         }
 
         private void LoadCurrentUserData()

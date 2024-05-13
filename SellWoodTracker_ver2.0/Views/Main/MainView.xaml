@@ -31,6 +31,11 @@
         <DataTemplate DataType="{x:Type viewModel:AddNewBuyerViewModel}">
             <local:AddNewBuyerView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:ReportViewModel}">
+            <local:ReportView/>
+        </DataTemplate>
+        
     </Window.Resources>
 
     
@@ -113,7 +118,8 @@
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ReportViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Images/report_task.png"                       
                                    Height="22"

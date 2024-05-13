@@ -62,7 +62,6 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
         private void LoadRequestedBuyers()
         {
-            //TODO get all requested
             RequestedBuyers = new ObservableCollection<RequestedBuyerModel>(_previewRequestedBuyer.GetAllRequestedBuyers());           
         }
 
