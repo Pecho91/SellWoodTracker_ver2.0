@@ -1,6 +1,7 @@
 ﻿using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerRepositories;
 using SellWoodTracker_ver2._0.Models.Buyers;
 using SellWoodTracker_ver2_0.Locators;
+using SellWoodTracker_ver2_0.Services.CompletedBuyerServices;
 using SellWoodTracker_ver2_0.Services.RequestedBuyerServices;
 using SellWoodTracker_ver2_0.ViewModels.Base;
 using SellWoodTracker_ver2_0.ViewModels.RelayCommands;
@@ -48,6 +49,9 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
         public ICommand MoveRequestedBuyerToCompletedCommand { get; }
         public ICommand DeleteRequestedBuyerCommand { get; }
+        public ICommand ExportToExcelRequestedBuyersCommand { get; }
+
+
         public RequestedBuyersViewModel()
         {
 
@@ -57,6 +61,8 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 
             MoveRequestedBuyerToCompletedCommand = new RelayCommand(ExecuteMoveRequestedBuyerToCompleted);
             DeleteRequestedBuyerCommand = new RelayCommand(ExecuteDeleteRequestedBuyer);
+            ExportToExcelRequestedBuyersCommand = new RelayCommand(ExecuteExportToExcelRequestedBuyers);
+
             LoadRequestedBuyers();
         }
 
@@ -69,7 +75,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         {
             if (_selectedRequestedBuyer != null)
             {
-                bool confirmed = ShowDeleteConfirmationDialog("Are you sure you want to complete the Buyer?", "Confirmation");
+                bool confirmed = ShowConfirmationDialog("Are you sure you want to complete the Buyer?", "Confirmation");
                 if (confirmed)
                 {
                     _moveRequestedBuyer.MoveRequestedBuyerToCompleted(SelectedRequestedBuyer.Id);
@@ -83,7 +89,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         {
             if (_selectedRequestedBuyer != null)
             {
-                bool confirmed = ShowDeleteConfirmationDialog("Are you sure you want to delete?", "Confirmation");
+                bool confirmed = ShowConfirmationDialog("Are you sure you want to delete?", "Confirmation");
                 if (confirmed)
                 {
                     _deleteRequestedBuyer.RemoveRequestedBuyer(SelectedRequestedBuyer.Id);
@@ -93,7 +99,18 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             Debug.WriteLine("DeleteSelectedButton clicked");
         }
 
-        private bool ShowDeleteConfirmationDialog(string messageText, string captionText)
+        private void ExecuteExportToExcelRequestedBuyers(object obj)
+        {
+            bool confirmed = ShowConfirmationDialog("Are you sure you want to export to Exel?", "Confirmation");
+            if (confirmed)
+            {
+                string filePath = "C:\\Users\\andri\\OneDrive\\Desktop\\SellWoodTrackerExport\\requested_buyers.xlsx";
+                var requestedBuyersExport = new RequestedBuyersExportToExcel(RequestedBuyerServicesLocator.RequestedBuyerGetter);
+                requestedBuyersExport.ExportToExcelRequestedBuyers(filePath);
+                MessageBox.Show("Export to Excel completed successfully.", "Export Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+        private bool ShowConfirmationDialog(string messageText, string captionText)
         {
             MessageBoxResult result = MessageBox.Show(messageText, captionText, MessageBoxButton.YesNo, MessageBoxImage.Question);
             return result == MessageBoxResult.Yes;

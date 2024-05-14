@@ -18,7 +18,7 @@ namespace SellWoodTracker_ver2._0.Models.Buyers
         private decimal _metricAmount;
         public decimal MetricAmount
         {
-            get => Math.Round(_metricAmount, 2);
+            get =>  Math.Round(_metricAmount, 2);
             set => _metricAmount = value;
         }
 
@@ -35,5 +35,7 @@ namespace SellWoodTracker_ver2._0.Models.Buyers
             get => Math.Round(_grossIncome, 2);
             set => _grossIncome = value;
         }
+
+        
     }
 }

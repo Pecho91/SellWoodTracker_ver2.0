@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:local="clr-namespace:SellWoodTracker_ver2_0.Views.Main"
-             xmlns:viewModel="clr-namespace:SellWoodTracker_ver2_0.ViewModels.MainViewModels"
+             xmlns:viewModel="clr-namespace:SellWoodTracker_ver2_0.ViewModels.MainViewModels"            
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -11,6 +11,7 @@
     <UserControl.DataContext>
         <viewModel:AddNewBuyerViewModel/>
     </UserControl.DataContext>
+
 
     <Grid Background="LightGray">
         <Grid.RowDefinitions>
@@ -102,14 +103,13 @@
                  <TextBox 
                          Style="{StaticResource textBoxStyle2}"                        
                          Text="{Binding NewBuyer.DateTime, Mode=TwoWay, StringFormat=dd.MM.yyyy. HH:mm, UpdateSourceTrigger=PropertyChanged}"/>
-
-                 <TextBox 
+                <TextBox 
                          Style="{StaticResource textBoxStyle2}"
-                         Text="{Binding NewBuyer.MetricAmount, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                         Text="{Binding NewBuyer.MetricAmount, Mode=TwoWay, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"/>
 
-                 <TextBox 
+                <TextBox 
                          Style="{StaticResource textBoxStyle2}"
-                         Text="{Binding NewBuyer.MetricPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                         Text="{Binding NewBuyer.MetricPrice, Mode=TwoWay,StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <Button  x:Name="AddNewBuyerButton"
                           Height="35"

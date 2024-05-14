@@ -11,7 +11,6 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.BuyerInterface
         T GetById(int id); 
         IEnumerable<T> GetAll();
         T GetByFirstName(string firstName);
-        //T GetByMetricAmount(decimal metricAmount);
-        //T GetByMetricPrice(decimal metricPrice);
+       
     }
 }

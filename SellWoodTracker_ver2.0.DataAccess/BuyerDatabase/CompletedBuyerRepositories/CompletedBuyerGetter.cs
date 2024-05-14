@@ -31,17 +31,6 @@ namespace SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.CompletedBuyerReposit
         public CompletedBuyerModel GetByFirstName(string firstName)
         {
             return _context.CompletedBuyers.FirstOrDefault(b => b.FirstName == firstName);
-        }
-
-        //public CompletedBuyerModel GetByMetricAmount(decimal metricAmount)
-        //{
-        //    return _context.CompletedBuyers.FirstOrDefault(b => b.MetricAmount == metricAmount);
-        //}
-
-        //public CompletedBuyerModel GetByMetricPrice(decimal metricAmount)
-        //{
-        //    return _context.CompletedBuyers.FirstOrDefault(b => b.MetricAmount == metricAmount);
-        //}
-
+        }   
     }
 }

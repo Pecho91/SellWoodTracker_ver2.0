@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows;
 using SellWoodTracker_ver2_0.Services.CompletedBuyerServices;
 using SellWoodTracker_ver2_0.Locators;
+using SellWoodTracker_ver2._0.DataAccess.BuyerDatabase.CompletedBuyerRepositories;
 
 namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
 {
@@ -46,6 +47,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         }
 
         public ICommand DeleteCompletedBuyerCommand { get; }
+        public ICommand ExportToExcelCompletedBuyersCommand { get; }
         public CompletedBuyersViewModel()
         {
 
@@ -53,6 +55,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             _previewCompletedBuyers = new PreviewCompletedBuyers(CompletedBuyerServicesLocator.CompletedBuyerGetter);
 
             DeleteCompletedBuyerCommand = new RelayCommand(ExecuteDeleteCompletedBuyer);
+            ExportToExcelCompletedBuyersCommand = new RelayCommand(ExecuteExportToExcelCompletedBuyers);
             LoadCompletedBuyers();
         }
 
@@ -65,7 +68,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
         {
             if (_selectedCompletedBuyer != null)
             {
-                bool confirmed = ShowDeleteConfirmationDialog("Are you sure you want to delete?", "Confirmation");
+                bool confirmed = ShowConfirmationDialog("Are you sure you want to delete?", "Confirmation");
                 if (confirmed)
                 {
                     _deleteCompletedBuyer.RemoveCompletedBuyer(SelectedCompletedBuyer.Id);
@@ -75,7 +78,18 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             Debug.WriteLine("RemoveCompletedBuyerButton clicked");
         }
 
-        private bool ShowDeleteConfirmationDialog(string messageText, string captionText)
+        private void ExecuteExportToExcelCompletedBuyers(object obj)
+        {
+            bool confirmed = ShowConfirmationDialog("Are you sure you want to export to Exel?", "Confirmation");
+            if(confirmed)
+            {
+                string filePath = "C:\\Users\\andri\\OneDrive\\Desktop\\SellWoodTrackerExport\\completed_buyers.xlsx";
+                var completedBuyersExport = new CompletedBuyersExportToExcel(CompletedBuyerServicesLocator.CompletedBuyerGetter);
+                completedBuyersExport.ExportToExcelCompletedBuyers(filePath);
+                MessageBox.Show("Export to Excel completed successfully.", "Export Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+        private bool ShowConfirmationDialog(string messageText, string captionText)
         {
             MessageBoxResult result = MessageBox.Show(messageText, captionText, MessageBoxButton.YesNo, MessageBoxImage.Question);
             return result == MessageBoxResult.Yes;

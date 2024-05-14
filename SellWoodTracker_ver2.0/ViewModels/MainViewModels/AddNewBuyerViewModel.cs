@@ -50,6 +50,7 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
             CetZoneDataTime();
           
             AddNewBuyerCommand = new RelayCommand(ExecuteAddNewBuyerCommand, CanExecuteAddNewBuyerCommand);
+            ClearFieldsCommand = new RelayCommand(ExecuteClearFieldsCommand);
         }
 
         private void ExecuteAddNewBuyerCommand(object obj)
@@ -64,11 +65,6 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
                 OnPropertyChanged(nameof(NewBuyer));
             }         
             Debug.WriteLine("RemoveCompletedBuyerButton clicked");
-        }
-
-        private void CalculateGrossIncome()
-        {
-            _newBuyer.GrossIncome = _newBuyer.MetricAmount * _newBuyer.MetricPrice;
         }
 
         private bool CanExecuteAddNewBuyerCommand(object obj)
@@ -91,6 +87,18 @@ namespace SellWoodTracker_ver2_0.ViewModels.MainViewModels
                 }
             }
             return true;
+        }
+
+        private void ExecuteClearFieldsCommand(object obj)
+        {
+            _newBuyer = new RequestedBuyerModel();
+            CetZoneDataTime();
+            OnPropertyChanged(nameof(NewBuyer));
+        }
+
+        private void CalculateGrossIncome()
+        {
+            _newBuyer.GrossIncome = _newBuyer.MetricAmount * _newBuyer.MetricPrice;
         }
 
         private void CetZoneDataTime()
